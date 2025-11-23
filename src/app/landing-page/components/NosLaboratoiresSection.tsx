@@ -20,13 +20,12 @@ const NosLaboratoiresSection = () => {
         'Analyseur de gluten',
         'Microscope électronique'
       ],
-      certifications: ['ISO 22000', 'HACCP', 'Certification Halal'],
       image: '/assets/images/galerie-3.jpg',
       alt: 'Laboratoire de contrôle qualité moderne avec équipements d\'analyse'
     },
     {
       name: 'Laboratoire de Recherche & Développement',
-      location: 'Yaoundé',
+      location: 'Douala - Siège Principal',
       description: 'Dédié à l\'innovation et au développement de nouvelles formulations de farine adaptées aux besoins locaux.',
       equipment: [
         'Équipements de test de recettes',
@@ -36,13 +35,12 @@ const NosLaboratoiresSection = () => {
         'Chambre climatique',
         'Équipements de test sensoriel'
       ],
-      certifications: ['ISO 17025', 'Partenariat CNRS'],
       image: '/assets/images/galerie-3.jpg',
       alt: 'Laboratoire de recherche et développement avec équipements scientifiques'
     },
     {
       name: 'Laboratoire de Microbiologie',
-      location: 'Garoua',
+      location: 'Douala - Siège Principal',
       description: 'Spécialisé dans les analyses microbiologiques et la détection de contaminants pour garantir la sécurité alimentaire.',
       equipment: [
         'Hotte à flux laminaire',
@@ -52,7 +50,6 @@ const NosLaboratoiresSection = () => {
         'Analyseur de mycotoxines',
         'Système PCR'
       ],
-      certifications: ['ISO 22000', 'Accréditation COFRAC'],
       image: '/assets/images/galerie-3.jpg',
       alt: 'Laboratoire de microbiologie avec équipements stériles'
     }
@@ -84,8 +81,7 @@ const NosLaboratoiresSection = () => {
           </h2>
           
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Trois laboratoires de pointe répartis sur le territoire camerounais, 
-            garantissant un contrôle qualité rigoureux et une recherche continue.
+            Nos laboratoires de pointe garantissent un contrôle qualité rigoureux et une recherche continue.
           </p>
         </div>
 
@@ -154,34 +150,13 @@ const NosLaboratoiresSection = () => {
                 </div>
               </div>
 
-              {/* Certifications */}
-              <div className="mb-8">
-                <h4 className="text-lg font-bold text-gray-900 mb-4 flex items-center">
-                  <Icon name="ShieldCheckIcon" size={20} className="mr-2" />
-                  Certifications
-                </h4>
-                <div className="flex flex-wrap gap-2">
-                  {laboratories[activeLab].certifications.map((cert, idx) => (
-                    <span key={idx} className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">
-                      {cert}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
               {/* Stats */}
-              <div className="grid grid-cols-3 gap-4 pt-6 border-t border-gray-200">
+              <div className="grid grid-cols-2 gap-4 pt-6 border-t border-gray-200">
                 <div className="text-center">
                   <div className="text-2xl font-bold text-green-600 mb-1">
                     {laboratories[activeLab].equipment.length}
                   </div>
                   <div className="text-sm text-gray-600">Équipements</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-green-600 mb-1">
-                    {laboratories[activeLab].certifications.length}
-                  </div>
-                  <div className="text-sm text-gray-600">Certifications</div>
                 </div>
                 <div className="text-center">
                   <div className="text-2xl font-bold text-green-600 mb-1">24/7</div>

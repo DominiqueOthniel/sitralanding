@@ -15,7 +15,7 @@ const AboutSection = () => {
       icon: 'ShieldCheckIcon',
       title: 'Qualité Garantie',
       description:
-        'Chaque lot est contrôlé selon 15 points de conformité ISO 22000 et HACCP. Zéro compromis sur la sécurité alimentaire.',
+        'Chaque lot est contrôlé selon 15 points de conformité. Zéro compromis sur la sécurité alimentaire.',
     },
     {
       icon: 'ArrowPathIcon',
@@ -27,30 +27,25 @@ const AboutSection = () => {
       icon: 'GlobeAltIcon',
       title: 'Ancrage Camerounais',
       description:
-        'Présents dans 12 villes, nous travaillons avec des producteurs locaux et des coopératives pour valoriser le savoir-faire national.',
+        'Présents dans toutes les villes du Cameroun, nous travaillons avec des producteurs locaux et des coopératives pour valoriser le savoir-faire national.',
     },
   ];
 
   const milestones = [
     {
-      year: '2009',
+      year: '2001',
       title: 'Nos débuts',
       description: 'Création du premier moulin pilote à Douala avec une équipe de 12 passionnés de filières céréalières.',
     },
     {
-      year: '2015',
-      title: 'Couverture nationale',
+      year: '2010',
+      title: 'Expansion régionale',
       description: 'Ouverture de nos entrepôts régionaux à Yaoundé, Garoua et Bafoussam pour réduire les délais de livraison.',
     },
     {
-      year: '2020',
-      title: 'Certification ISO 22000',
-      description: 'Mise en place du laboratoire interne et traçabilité numérique complète du grain au sac.',
-    },
-    {
-      year: '2024',
-      title: 'Farine Cameroun Premium',
-      description: 'Lancement de notre gamme signature dédiée aux artisans exigeants et aux industriels export.',
+      year: '2015',
+      title: 'Certification et innovation',
+      description: 'Mise en place du laboratoire interne, certification ISO 22000 et traçabilité numérique complète du grain au sac.',
     },
   ];
 
@@ -79,13 +74,13 @@ const AboutSection = () => {
           </div>
 
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-            Le partenaire farine{' '}
-            <span className="text-green-600">premium</span>{' '}
-            qui accompagne votre croissance
+            Partenaire{' '}
+            <span className="text-green-600">privilégié</span>{' '}
+            des boulangers et pâtissiers du Cameroun
           </h2>
 
           <p className="text-xl text-gray-600 max-w-4xl mx-auto">
-            Depuis plus de 15 ans, nous sécurisons l’approvisionnement en farines hautes performances pour les boulangeries,
+            Depuis plus de 20 ans, nous <span className="font-bold text-gray-900 bg-yellow-200 px-2 py-1 rounded">produisons des farines</span> hautes performances pour les boulangeries,
             pâtisseries, restaurateurs et acteurs industriels. Notre force : une chaîne intégrée du grain au produit fini,
             des standards internationaux et un accompagnement humain au quotidien.
           </p>
@@ -189,16 +184,6 @@ const AboutSection = () => {
               <p className="text-gray-600 leading-relaxed">
                 Une direction pluridisciplinaire issue de la meunerie, de la logistique et de la nutrition. Nous croyons à la proximité,
                 l’écoute et la co-construction avec nos clients pour faire rayonner les savoir-faire camerounais.
-              </p>
-            </div>
-            <div className="bg-white rounded-2xl border border-green-100 p-6 shadow-sm">
-              <div className="flex items-center mb-4">
-                <Icon name="MapPinIcon" size={20} className="text-green-600 mr-2" />
-                <span className="font-semibold text-gray-900">Douala • Yaoundé • Garoua • Bafoussam</span>
-              </div>
-              <p className="text-sm text-gray-600 leading-relaxed">
-                4 plateformes logistiques, 38 camions de distribution, 120 collaborateurs terrain et un réseau d’agents qualité
-                qui visitent les ateliers chaque semaine.
               </p>
             </div>
           </div>

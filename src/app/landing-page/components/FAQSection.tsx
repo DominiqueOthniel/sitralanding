@@ -50,7 +50,7 @@ const FAQSection = () => {
       id: 'delivery-2',
       category: 'delivery',
       question: 'Livrez-vous dans toute l\'Afrique Centrale ?',
-      answer: 'Actuellement, nous livrons dans tout le Cameroun (12 villes principales) et nous étendons progressivement vers le Tchad, la RCA et le Gabon. Pour les livraisons internationales, nous travaillons avec des partenaires logistiques certifiés et proposons des conditions spéciales pour les gros volumes.'
+      answer: 'Actuellement, nous livrons dans toutes les villes du Cameroun et nous étendons progressivement vers le Tchad, la RCA et le Gabon. Pour les livraisons internationales, nous travaillons avec des partenaires logistiques certifiés et proposons des conditions spéciales pour les gros volumes.'
     },
     {
       id: 'delivery-3',
@@ -68,7 +68,7 @@ const FAQSection = () => {
       id: 'general-1',
       category: 'general',
       question: 'Depuis combien de temps êtes-vous sur le marché ?',
-      answer: 'Nous sommes présents sur le marché camerounais depuis 15 ans. Nous avons commencé comme distributeur local et avons progressivement développé notre propre chaîne de contrôle qualité. Aujourd\'hui, nous approvisionnons plus de 2500 entreprises dans 12 villes du Cameroun.'
+      answer: 'Nous sommes présents sur le marché camerounais depuis plus de 20 ans. Nous avons commencé comme distributeur local et avons progressivement développé notre propre chaîne de contrôle qualité. Aujourd\'hui, nous approvisionnons plus de 2500 entreprises dans toutes les villes du Cameroun.'
     },
     {
       id: 'general-2',

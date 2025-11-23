@@ -10,8 +10,8 @@ export const viewport = {
 };
 
 export const metadata = {
-  title: 'Farine de Qualité Supérieure du Cameroun - Farine Cameroun',
-  description: 'Découvrez la farine premium du Cameroun pour boulangeries, restaurants et industries alimentaires. Qualité constante garantie, livraison rapide dans tout le Cameroun.',
+  title: 'Société Industrielle de Transformation de Blé au Cameroun - Sitrabcam',
+  description: 'Société Industrielle de Transformation de Blé au Cameroun. Découvrez la farine premium pour boulangeries, restaurants et industries alimentaires. Qualité constante garantie, livraison rapide dans tout le Cameroun.',
   icons: {
     icon: [
       { url: '/favicon.ico', type: 'image/x-icon' }

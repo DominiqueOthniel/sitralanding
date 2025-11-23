@@ -42,6 +42,7 @@ import {
   ChevronLeftIcon,
   ChevronRightIcon,
   UserGroupIcon,
+  HomeIcon,
 } from '@heroicons/react/24/outline';
 
 // Explicit icon mapping for better compatibility with Next.js/Webpack
@@ -86,6 +87,7 @@ const iconMap: { [key: string]: React.ComponentType<React.SVGProps<SVGSVGElement
   ChevronLeftIcon,
   ChevronRightIcon,
   UserGroupIcon,
+  HomeIcon,
 };
 
 type IconVariant = 'outline' | 'solid';

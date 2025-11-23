@@ -215,7 +215,7 @@ const ImageGallerySection = () => {
             <div className="text-gray-600">Catégories</div>
           </div>
           <div className="bg-white rounded-xl p-6 text-center shadow-lg">
-            <div className="text-3xl font-bold text-green-600 mb-2">15+</div>
+            <div className="text-3xl font-bold text-green-600 mb-2">20+</div>
             <div className="text-gray-600">Années d'expérience</div>
           </div>
           <div className="bg-white rounded-xl p-6 text-center shadow-lg">

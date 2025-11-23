@@ -66,7 +66,7 @@ const SolutionSection = () => {
   },
   {
     title: "Livraison Rapide",
-    description: "Livraison dans toutes les grandes villes du Cameroun",
+    description: "Livraison dans toutes les villes du Cameroun",
     icon: "TruckIcon",
     metric: "24-48h",
     metricLabel: "délai moyen"

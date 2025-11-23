@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
+import Icon from '../ui/AppIcon';
 
 interface NavigationItem {
   id: string;
@@ -27,6 +28,7 @@ const navigationItems: NavigationItem[] = [
 function StickyNavigation({ className = '' }: StickyNavigationProps) {
   const [activeSection, setActiveSection] = useState('accueil');
   const [isVisible, setIsVisible] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -139,42 +141,46 @@ function StickyNavigation({ className = '' }: StickyNavigationProps) {
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ease-in-out ${
-          isVisible ? 'bg-white shadow-sm' : 'bg-white/95'
+        className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ease-in-out backdrop-blur-md ${
+          isVisible ? 'bg-white/95 shadow-lg border-b border-gray-100' : 'bg-white/80'
         } hidden md:block ${className}`}
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
-            <div className="flex items-center space-x-8">
+            <div className="flex items-center space-x-10">
               <Image
                 src="/logo.png"
                 alt="Sitrabcam - Société Industrielle de Transformation de Blé au Cameroun"
                 width={120}
                 height={120}
-                className="h-12 w-auto"
+                className="h-12 w-auto transition-transform duration-300 hover:scale-105 cursor-pointer"
                 priority
                 quality={90}
+                onClick={(e) => handleNavClick('#accueil', 'accueil', e as any)}
               />
-              <div className="flex items-center space-x-1">
+              <div className="flex items-center space-x-2">
                 {navigationItems.map((item) => (
                   <button
                     key={item.id}
                     onClick={(e) => handleNavClick(item.href, item.id, e)}
                     type="button"
-                    className={`px-4 py-2 text-sm font-medium transition-colors duration-200 ${
+                    className={`relative px-4 py-2.5 text-sm font-medium transition-all duration-300 rounded-lg ${
                       activeSection === item.id
-                        ? 'text-gray-900 border-b-2 border-gray-900'
-                        : 'text-gray-600 hover:text-gray-900'
+                        ? 'text-gray-900 bg-gray-50'
+                        : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50/50'
                     }`}
                   >
                     {item.label}
+                    {activeSection === item.id && (
+                      <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-gray-900 rounded-full"></span>
+                    )}
                   </button>
                 ))}
               </div>
             </div>
             <button
               onClick={(e) => handleNavClick('#contact', 'contact', e)}
-              className="px-6 py-2.5 bg-gray-900 text-white text-sm font-medium hover:bg-gray-800 transition-colors duration-200"
+              className="px-6 py-2.5 bg-gray-900 text-white text-sm font-medium hover:bg-gray-800 transition-all duration-300 rounded-lg shadow-sm hover:shadow-md hover:-translate-y-0.5"
             >
               Contactez-nous
             </button>
@@ -182,45 +188,139 @@ function StickyNavigation({ className = '' }: StickyNavigationProps) {
         </div>
       </nav>
 
+      {/* Mobile Navigation - Top Header */}
       <nav
-        className={`fixed bottom-0 left-0 right-0 z-[100] transition-all duration-300 ease-in-out ${
-          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+        className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ease-in-out backdrop-blur-md ${
+          isVisible ? 'bg-white/95 shadow-sm border-b border-gray-100' : 'bg-white/90'
         } md:hidden`}
       >
-        <div className="bg-white/95 backdrop-blur-sm border-t border-gray-200 px-4 py-2">
-          <div className="flex items-center justify-between">
-            {navigationItems.slice(0, 4).map((item) => (
-              <button
-                key={item.id}
-                onClick={(e) => handleNavClick(item.href, item.id, e)}
-                type="button"
-                className={`flex flex-col items-center px-2 py-2 rounded-lg transition-all duration-250 ease-in-out min-w-0 flex-1 ${
-                  activeSection === item.id
-                    ? 'text-green-600' : 'text-gray-600 hover:text-green-600'
-                }`}
-              >
-                <span className="text-xs font-medium truncate w-full text-center">
-                  {item.label}
-                </span>
-                {activeSection === item.id && (
-                  <div className="w-1 h-1 bg-green-600 rounded-full mt-1"></div>
-                )}
-              </button>
-            ))}
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="flex items-center justify-between h-16">
+            <Image
+              src="/logo.png"
+              alt="Sitrabcam"
+              width={100}
+              height={100}
+              className="h-10 w-auto cursor-pointer"
+              priority
+              quality={90}
+              onClick={(e) => handleNavClick('#accueil', 'accueil', e as any)}
+            />
             <button
-              type="button"
-              className="flex flex-col items-center px-2 py-2 rounded-lg transition-all duration-250 ease-in-out text-gray-600 hover:text-green-600 min-w-0 flex-1"
-              onClick={(e) => {
-                e.preventDefault();
-                // Scroll to contact section (last section)
-                handleNavClick('#contact', 'contact', e);
-              }}
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="p-2 rounded-lg text-gray-600 hover:bg-gray-100 transition-colors duration-200"
+              aria-label="Toggle menu"
             >
-              <span className="text-xs font-medium">Plus</span>
+              <svg
+                className={`w-6 h-6 transition-transform duration-300 ${isMobileMenuOpen ? 'rotate-90' : ''}`}
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                {isMobileMenuOpen ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                )}
+              </svg>
             </button>
           </div>
         </div>
       </nav>
+
+      {/* Mobile Menu Overlay */}
+      <div
+        className={`fixed inset-0 bg-white z-[99] transition-all duration-300 ease-in-out pt-16 md:hidden ${
+          isMobileMenuOpen ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-full pointer-events-none'
+        }`}
+      >
+        <div className="h-full overflow-y-auto px-4 py-6">
+          <div className="space-y-1">
+            {navigationItems.map((item) => (
+              <button
+                key={item.id}
+                onClick={(e) => {
+                  handleNavClick(item.href, item.id, e);
+                  setIsMobileMenuOpen(false);
+                }}
+                type="button"
+                className={`w-full text-left px-4 py-3 rounded-lg transition-all duration-200 ${
+                  activeSection === item.id
+                    ? 'bg-gray-100 text-gray-900 font-medium'
+                    : 'text-gray-600 hover:bg-gray-50'
+                }`}
+              >
+                {item.label}
+              </button>
+            ))}
+            <button
+              onClick={(e) => {
+                handleNavClick('#contact', 'contact', e);
+                setIsMobileMenuOpen(false);
+              }}
+              className="w-full mt-4 px-4 py-3 bg-gray-900 text-white rounded-lg font-medium hover:bg-gray-800 transition-colors duration-200"
+            >
+              Contactez-nous
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile Bottom Navigation - Olam Style */}
+      <div
+        className={`fixed bottom-0 left-0 right-0 z-[100] transition-all duration-300 ease-in-out md:hidden ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+        }`}
+      >
+        <div className="bg-white border-t border-gray-200 shadow-lg">
+          <div className="max-w-7xl mx-auto px-2">
+            <div className="flex items-center justify-around py-2">
+              {[
+                { id: 'accueil', label: 'Accueil', icon: 'HomeIcon' },
+                { id: 'catalogue', label: 'Catalogue', icon: 'CubeIcon' },
+                { id: 'contact', label: 'Contact', icon: 'PhoneIcon' },
+              ].map((item) => (
+                <button
+                  key={item.id}
+                  onClick={(e) => handleNavClick(`#${item.id}`, item.id, e)}
+                  type="button"
+                  className={`relative flex flex-col items-center justify-center px-4 py-2 rounded-lg transition-all duration-200 flex-1 ${
+                    activeSection === item.id
+                      ? 'text-gray-900' : 'text-gray-500'
+                  }`}
+                >
+                  <Icon 
+                    name={item.icon as any} 
+                    size={22} 
+                    className={`mb-1 ${activeSection === item.id ? 'text-gray-900' : 'text-gray-500'}`}
+                  />
+                  <span className="text-xs font-medium">{item.label}</span>
+                  {activeSection === item.id && (
+                    <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-gray-900 rounded-full"></div>
+                  )}
+                </button>
+              ))}
+              <button
+                type="button"
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className={`flex flex-col items-center justify-center px-4 py-2 rounded-lg transition-all duration-200 flex-1 ${
+                  isMobileMenuOpen ? 'text-gray-900' : 'text-gray-500'
+                }`}
+              >
+                <svg
+                  className="w-5 h-5 mb-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+                <span className="text-xs font-medium">Menu</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   );
 }

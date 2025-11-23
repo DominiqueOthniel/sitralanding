@@ -100,7 +100,7 @@ function AnimatedImage({
           ...baseStyle,
           transform: isVisible ? 'scale(1) translateY(0)' : 'scale(1.1) translateY(30px)',
           opacity: isVisible ? 1 : (imageLoaded ? 0.8 : 0.5),
-          filter: isVisible ? 'blur(0px)' : (imageLoaded ? 'blur(5px)' : 'blur(10px)'),
+          filter: 'none',
         };
       
       case 'rotate':
@@ -131,7 +131,7 @@ function AnimatedImage({
         return {
           ...baseStyle,
           opacity: isVisible ? 1 : (imageLoaded ? 0.8 : 0.5),
-          filter: isVisible ? 'blur(0px) brightness(1)' : (imageLoaded ? 'blur(10px) brightness(0.9)' : 'blur(20px) brightness(0.8)'),
+          filter: 'none',
           transform: isVisible ? 'scale(1)' : 'scale(1.05)',
         };
       
@@ -174,7 +174,7 @@ function AnimatedImage({
             src={src}
             alt={alt}
             fill
-            className={`object-cover transition-opacity duration-500 ${
+            className={`${className.includes('object-contain') ? 'object-contain' : 'object-cover'} transition-opacity duration-500 ${
               imageLoaded ? 'opacity-100' : 'opacity-0'
             }`}
             onLoad={() => {
@@ -188,8 +188,7 @@ function AnimatedImage({
             quality={85}
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             priority={false}
-            placeholder="blur"
-            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
+            placeholder="empty"
           />
           {!imageLoaded && (
             <div className="absolute inset-0 bg-gray-200 animate-pulse" />

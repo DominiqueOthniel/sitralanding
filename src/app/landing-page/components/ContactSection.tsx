@@ -119,31 +119,22 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-20 relative">
-      {/* Background image with overlay - Entrepôt et logistique de distribution - Optimized */}
-      <div 
-        className="absolute inset-0 z-0 section-bg-image"
-        style={{
-          backgroundImage: 'url(/assets/images/galerie-7.jpg)'
-        }}
-      >
-        <div className="section-bg-overlay-strong"></div>
-      </div>
-      <div className="container mx-auto px-4 section-content">
+    <section id="contact" className="py-24 relative bg-gradient-to-b from-white to-gray-50">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
-            <Icon name="PhoneIcon" size={16} className="mr-2" />
+        <div className="text-center mb-20">
+          <div className="inline-flex items-center bg-gray-100 text-gray-700 px-5 py-2.5 rounded-full text-sm font-medium mb-6 border border-gray-200">
+            <Icon name="PhoneIcon" size={16} className="mr-2.5 text-gray-600" />
             Contactez-Nous
           </div>
           
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-900 mb-6 leading-tight">
             Prêt à{' '}
-            <span className="text-green-600">Transformer</span>{' '}
+            <span className="font-semibold">Transformer</span>{' '}
             Votre Business ?
           </h2>
           
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Contactez nos experts dès aujourd'hui pour une consultation gratuite 
             et découvrez comment notre farine premium peut révolutionner vos produits.
           </p>
@@ -151,8 +142,8 @@ const ContactSection = () => {
 
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Contact Form */}
-          <div className="bg-white rounded-2xl p-8 shadow-xl">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">
+          <div className="bg-white rounded-2xl p-8 lg:p-10 shadow-xl border border-gray-100">
+            <h3 className="text-3xl font-light text-gray-900 mb-8">
               Demande de Devis Personnalisé
             </h3>
 
@@ -193,7 +184,7 @@ const ContactSection = () => {
                     value={formData.name}
                     onChange={handleInputChange}
                     required
-                    className="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                    className="w-full p-4 border border-gray-200 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-gray-900 transition-all duration-200 bg-white hover:border-gray-300"
                     placeholder="Votre nom"
                   />
                 </div>
@@ -208,7 +199,7 @@ const ContactSection = () => {
                     value={formData.business}
                     onChange={handleInputChange}
                     required
-                    className="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                    className="w-full p-4 border border-gray-200 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-gray-900 transition-all duration-200 bg-white hover:border-gray-300"
                     placeholder="Nom de votre entreprise"
                   />
                 </div>
@@ -225,7 +216,7 @@ const ContactSection = () => {
                     value={formData.email}
                     onChange={handleInputChange}
                     required
-                    className="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                    className="w-full p-4 border border-gray-200 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-gray-900 transition-all duration-200 bg-white hover:border-gray-300"
                     placeholder="votre@email.com"
                   />
                 </div>
@@ -240,7 +231,7 @@ const ContactSection = () => {
                     value={formData.phone}
                     onChange={handleInputChange}
                     required
-                    className="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                    className="w-full p-4 border border-gray-200 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-gray-900 transition-all duration-200 bg-white hover:border-gray-300"
                     placeholder="+237 6XX XXX XXX"
                   />
                 </div>
@@ -255,7 +246,7 @@ const ContactSection = () => {
                     name="city"
                     value={formData.city}
                     onChange={handleInputChange}
-                    className="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                    className="w-full p-4 border border-gray-200 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-gray-900 transition-all duration-200 bg-white hover:border-gray-300"
                     aria-label="Ville"
                   >
                     <option value="">Sélectionnez votre ville</option>
@@ -273,7 +264,7 @@ const ContactSection = () => {
                     name="monthlyVolume"
                     value={formData.monthlyVolume}
                     onChange={handleInputChange}
-                    className="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                    className="w-full p-4 border border-gray-200 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-gray-900 transition-all duration-200 bg-white hover:border-gray-300"
                     aria-label="Volume mensuel"
                   >
                     <option value="">Sélectionnez votre volume</option>
@@ -316,11 +307,11 @@ const ContactSection = () => {
                 />
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-4 pt-4">
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="flex-1 bg-green-600 hover:bg-green-700 disabled:bg-gray-400 text-white px-6 py-4 rounded-lg font-semibold transition-colors duration-250"
+                  className="group flex-1 bg-gray-900 hover:bg-gray-800 disabled:bg-gray-400 text-white px-6 py-4 rounded-lg font-medium transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 disabled:hover:translate-y-0"
                 >
                   {isSubmitting ? (
                     <>
@@ -329,7 +320,7 @@ const ContactSection = () => {
                     </>
                   ) : (
                     <>
-                      <Icon name="PaperAirplaneIcon" size={20} className="inline mr-2" />
+                      <Icon name="PaperAirplaneIcon" size={20} className="inline mr-2 group-hover:scale-110 transition-transform duration-300" />
                       Envoyer la Demande
                     </>
                   )}
@@ -338,9 +329,9 @@ const ContactSection = () => {
                 <button
                   type="button"
                   onClick={handleWhatsAppContact}
-                  className="flex-1 bg-green-500 hover:bg-green-600 text-white px-6 py-4 rounded-lg font-semibold transition-colors duration-250"
+                  className="group flex-1 bg-white hover:bg-gray-50 text-gray-900 border-2 border-gray-200 hover:border-gray-300 px-6 py-4 rounded-lg font-medium transition-all duration-300 shadow-sm hover:shadow-md"
                 >
-                  <Icon name="ChatBubbleLeftRightIcon" size={20} className="inline mr-2" />
+                  <Icon name="ChatBubbleLeftRightIcon" size={20} className="inline mr-2 group-hover:scale-110 transition-transform duration-300" />
                   WhatsApp Direct
                 </button>
               </div>
@@ -367,21 +358,21 @@ const ContactSection = () => {
                 };
 
                 return (
-                  <div key={index} className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-250">
+                  <div key={index} className="group bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-gray-200 hover:-translate-y-1">
                     <div className="flex items-start space-x-4">
-                      <div className="flex-shrink-0 w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
-                        <Icon name={info.icon as any} size={24} className="text-green-600" />
+                      <div className="flex-shrink-0 w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center group-hover:bg-gray-900 transition-colors duration-300">
+                        <Icon name={info.icon as any} size={24} className="text-gray-600 group-hover:text-white transition-colors duration-300" />
                       </div>
                       <div className="flex-1">
-                        <h4 className="text-lg font-bold text-gray-900 mb-2">{info.title}</h4>
+                        <h4 className="text-lg font-semibold text-gray-900 mb-2">{info.title}</h4>
                         {info.details.map((detail, idx) => (
                           <p key={idx} className="text-gray-600 mb-1">{detail}</p>
                         ))}
                         <button 
                           onClick={handleContactAction}
-                          className="text-green-600 font-semibold hover:text-green-700 transition-colors duration-250 mt-2"
+                          className="text-gray-900 font-medium hover:text-gray-700 transition-colors duration-200 mt-3 flex items-center group"
                         >
-                          {info.action} →
+                          {info.action} <span className="ml-1 group-hover:translate-x-1 transition-transform duration-200">→</span>
                         </button>
                       </div>
                     </div>
