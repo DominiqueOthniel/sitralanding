@@ -44,7 +44,7 @@ const ProductShowcase = () => {
     'Produits nécessitant une forte élasticité'],
 
     packaging: ['Sacs 25kg', 'Sacs 50kg', 'Big bags 1000kg'],
-    image: "/assets/images/galerie-4.jpg",
+    image: "/assets/images/farine-force.png",
     alt: 'Farine de force pour boulangerie professionnelle',
     popular: true
   },
@@ -66,7 +66,7 @@ const ProductShowcase = () => {
     'Pains de mie'],
 
     packaging: ['Sacs 25kg', 'Sacs 50kg', 'Big bags 1000kg'],
-    image: "/assets/images/galerie-1.jpg",
+    image: "/assets/images/farine-boulangere.png",
     alt: 'Farine boulangère premium pour professionnels'
   },
   {

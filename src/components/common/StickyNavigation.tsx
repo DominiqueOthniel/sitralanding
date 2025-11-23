@@ -207,9 +207,14 @@ function StickyNavigation({ className = '' }: StickyNavigationProps) {
               onClick={(e) => handleNavClick('#accueil', 'accueil', e as any)}
             />
             <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="p-2 rounded-lg text-gray-600 hover:bg-gray-100 transition-colors duration-200"
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                setIsMobileMenuOpen(!isMobileMenuOpen);
+              }}
+              className="p-2 rounded-lg text-gray-600 hover:bg-gray-100 transition-colors duration-200 z-[101] relative"
               aria-label="Toggle menu"
+              type="button"
             >
               <svg
                 className={`w-6 h-6 transition-transform duration-300 ${isMobileMenuOpen ? 'rotate-90' : ''}`}
@@ -229,8 +234,14 @@ function StickyNavigation({ className = '' }: StickyNavigationProps) {
       </nav>
 
       {/* Mobile Menu Overlay */}
+      {isMobileMenuOpen && (
+        <div
+          className="fixed inset-0 bg-black/50 z-[98] md:hidden"
+          onClick={() => setIsMobileMenuOpen(false)}
+        />
+      )}
       <div
-        className={`fixed inset-0 bg-white z-[99] transition-all duration-300 ease-in-out pt-16 md:hidden ${
+        className={`fixed inset-y-0 left-0 w-80 bg-white z-[99] transition-all duration-300 ease-in-out pt-16 md:hidden shadow-xl ${
           isMobileMenuOpen ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-full pointer-events-none'
         }`}
       >
