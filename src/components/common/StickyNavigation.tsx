@@ -139,39 +139,45 @@ function StickyNavigation({ className = '' }: StickyNavigationProps) {
   return (
     <>
       <nav
-        className={`fixed top-5 left-1/2 transform -translate-x-1/2 z-[100] transition-all duration-300 ease-in-out ${
-          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
+        className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ease-in-out ${
+          isVisible ? 'bg-white shadow-sm' : 'bg-white/95'
         } hidden md:block ${className}`}
       >
-        <div className="bg-white/95 backdrop-blur-sm rounded-full shadow-lg border border-gray-200 px-6 py-3">
-          <div className="flex items-center space-x-6">
-            <div className="flex items-center space-x-3 pr-4 border-r border-gray-200">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="flex items-center justify-between h-20">
+            <div className="flex items-center space-x-8">
               <Image
                 src="/logo.png"
                 alt="Sitrabcam - Société Industrielle de Transformation de Blé au Cameroun"
-                width={112}
-                height={112}
-                className="w-28 h-auto drop-shadow-sm"
+                width={120}
+                height={120}
+                className="h-12 w-auto"
                 priority
                 quality={90}
               />
+              <div className="flex items-center space-x-1">
+                {navigationItems.map((item) => (
+                  <button
+                    key={item.id}
+                    onClick={(e) => handleNavClick(item.href, item.id, e)}
+                    type="button"
+                    className={`px-4 py-2 text-sm font-medium transition-colors duration-200 ${
+                      activeSection === item.id
+                        ? 'text-gray-900 border-b-2 border-gray-900'
+                        : 'text-gray-600 hover:text-gray-900'
+                    }`}
+                  >
+                    {item.label}
+                  </button>
+                ))}
+              </div>
             </div>
-            <div className="flex items-center space-x-4">
-              {navigationItems.map((item) => (
-                <button
-                  key={item.id}
-                  onClick={(e) => handleNavClick(item.href, item.id, e)}
-                  type="button"
-                  className={`px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 ease-out transform hover:scale-105 ${
-                    activeSection === item.id
-                      ? 'bg-green-600 text-white shadow-lg scale-105'
-                      : 'text-gray-900 hover:text-green-600 hover:bg-gray-100'
-                  }`}
-                >
-                  {item.label}
-                </button>
-              ))}
-            </div>
+            <button
+              onClick={(e) => handleNavClick('#contact', 'contact', e)}
+              className="px-6 py-2.5 bg-gray-900 text-white text-sm font-medium hover:bg-gray-800 transition-colors duration-200"
+            >
+              Contactez-nous
+            </button>
           </div>
         </div>
       </nav>

@@ -81,19 +81,6 @@
     font-family: 'Playfair Display', serif;
   }
 
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image: url('/logo.png');
-    background-repeat: no-repeat;
-    background-position: center 20vh;
-    background-size: min(65vw, 720px);
-    opacity: 0.05;
-    filter: saturate(80%);
-    pointer-events: none;
-    z-index: 0;
-  }
 
   #__next {
     position: relative;
