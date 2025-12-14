@@ -14,6 +14,12 @@ const FAQSection = () => {
   const [activeCategory, setActiveCategory] = useState<string>('all');
   const [openFAQ, setOpenFAQ] = useState<string | null>(null);
 
+  const handleWhatsAppClick = () => {
+    const message = 'Bonjour! J\'ai une question concernant vos produits. Pouvez-vous m\'aider?';
+    const encodedMessage = encodeURIComponent(message);
+    window.open(`https://wa.me/237690900698?text=${encodedMessage}`, '_blank');
+  };
+
   const categories = [
     { id: 'all', label: 'Toutes', icon: 'QuestionMarkCircleIcon' },
     { id: 'quality', label: 'Qualité', icon: 'ShieldCheckIcon' },
@@ -32,7 +38,7 @@ const FAQSection = () => {
       id: 'quality-2',
       category: 'quality',
       question: 'Quelle est la durée de conservation de votre farine ?',
-      answer: 'Notre farine se conserve 12 mois dans son emballage d\'origine, stockée dans un endroit sec et frais (température < 25°C, humidité < 65%). Grâce à notre conditionnement hermétique sous atmosphère protectrice, elle maintient toutes ses propriétés nutritives et boulangères pendant toute cette période.'
+      answer: 'Notre farine se conserve 6 mois dans son emballage d\'origine, stockée dans un endroit sec et frais (température < 25°C, humidité < 65%). Grâce à notre conditionnement hermétique sous atmosphère protectrice, elle maintient toutes ses propriétés nutritives et boulangères pendant toute cette période.'
     },
     {
       id: 'quality-3',
@@ -50,7 +56,7 @@ const FAQSection = () => {
       id: 'delivery-2',
       category: 'delivery',
       question: 'Livrez-vous dans toute l\'Afrique Centrale ?',
-      answer: 'Actuellement, nous livrons dans toutes les villes du Cameroun et nous étendons progressivement vers le Tchad, la RCA et le Gabon. Pour les livraisons internationales, nous travaillons avec des partenaires logistiques certifiés et proposons des conditions spéciales pour les gros volumes.'
+      answer: 'Actuellement, nous livrons dans toutes les villes du Cameroun. Pour les livraisons au nord, nous travaillons avec des partenaires logistiques certifiés et proposons des conditions spéciales pour les gros volumes.'
     },
     {
       id: 'delivery-3',
@@ -62,7 +68,7 @@ const FAQSection = () => {
       id: 'general-2',
       category: 'general',
       question: 'Quelles sont vos conditions de paiement ?',
-      answer: 'Nous proposons plusieurs options de paiement flexibles adaptées à vos besoins. Contactez-nous pour discuter des modalités qui conviennent le mieux à votre entreprise. Nous acceptons virements bancaires, chèques, et mobile money (Orange Money, MTN Mobile Money).'
+      answer: 'Nous proposons plusieurs options de paiement flexibles adaptées à vos besoins. Contactez-nous pour discuter des modalités qui conviennent le mieux à votre entreprise. Nous acceptons les chèques, et les virements à la caisse.'
     },
     {
       id: 'general-1',
@@ -189,11 +195,10 @@ const FAQSection = () => {
               spécifiques sur nos produits et services.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors duration-250">
-                <Icon name="PhoneIcon" size={16} className="inline mr-2" />
-                Appeler un Expert
-              </button>
-              <button className="bg-white hover:bg-gray-50 text-green-600 border-2 border-green-600 px-6 py-3 rounded-lg font-semibold transition-colors duration-250">
+              <button 
+                onClick={handleWhatsAppClick}
+                className="bg-white hover:bg-gray-50 text-green-600 border-2 border-green-600 px-6 py-3 rounded-lg font-semibold transition-colors duration-250"
+              >
                 <Icon name="ChatBubbleLeftRightIcon" size={16} className="inline mr-2" />
                 Chat WhatsApp
               </button>

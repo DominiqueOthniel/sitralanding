@@ -52,7 +52,7 @@ const ContactSection = () => {
     {
       icon: 'MapPinIcon',
       title: 'Adresse',
-      details: ['Zone Industrielle Bassa', 'BP 1234 Douala, Cameroun'],
+      details: ['B.P. 15582 Akwa', 'Douala, Cameroun'],
       action: 'Voir sur carte'
     }
   ];
@@ -72,11 +72,11 @@ const ContactSection = () => {
   ];
 
   const volumeRanges = [
-    '10-25 sacs/mois',
-    '25-50 sacs/mois',
-    '50-100 sacs/mois',
-    '100-200 sacs/mois',
-    '200+ sacs/mois'
+    '300-500 sacs/mois',
+    '500-1000 sacs/mois',
+    '1000-2000 sacs/mois',
+    '2000-5000 sacs/mois',
+    '5000+ sacs/mois'
   ];
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
@@ -91,25 +91,29 @@ const ContactSection = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    try {
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      setSubmitStatus('success');
-      setFormData({
-        name: '',
-        business: '',
-        email: '',
-        phone: '',
-        city: '',
-        monthlyVolume: '',
-        productType: '',
-        message: ''
-      });
-    } catch (error) {
-      setSubmitStatus('error');
-    } finally {
-      setIsSubmitting(false);
+    // Construire le message WhatsApp avec toutes les informations du formulaire
+    let message = `Bonjour! Je souhaite passer une commande.\n\n`;
+    message += `*Informations de contact:*\n`;
+    message += `👤 Nom: ${formData.name || 'Non renseigné'}\n`;
+    message += `🏢 Entreprise: ${formData.business || 'Non renseigné'}\n`;
+    message += `📧 Email: ${formData.email || 'Non renseigné'}\n`;
+    message += `📱 Téléphone: ${formData.phone || 'Non renseigné'}\n`;
+    message += `📍 Ville: ${formData.city || 'Non renseigné'}\n\n`;
+    message += `*Détails de la commande:*\n`;
+    message += `📦 Volume mensuel: ${formData.monthlyVolume || 'Non renseigné'}\n`;
+    message += `🥖 Type de produit: ${formData.productType || 'Non renseigné'}\n`;
+    if (formData.message) {
+      message += `💬 Message: ${formData.message}\n`;
     }
+    message += `\nMerci de me contacter pour finaliser ma commande.`;
+
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/237690900698?text=${encodedMessage}`;
+    
+    // Ouvrir WhatsApp
+    window.open(whatsappUrl, '_blank');
+    
+    setIsSubmitting(false);
   };
 
   const handleWhatsAppContact = () => {
@@ -129,14 +133,13 @@ const ContactSection = () => {
           </div>
           
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-900 mb-6 leading-tight">
-            Prêt à{' '}
-            <span className="font-semibold">Transformer</span>{' '}
-            Votre Business ?
+            Prêt à avoir des{' '}
+            <span className="font-semibold">pains de qualité</span> ?
           </h2>
           
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Contactez nos experts dès aujourd'hui pour une consultation gratuite 
-            et découvrez comment notre farine premium peut révolutionner vos produits.
+            Contactez-nous dès aujourd'hui pour avoir des produits de qualité 
+            qui vont révolutionner votre business.
           </p>
         </div>
 
@@ -144,7 +147,7 @@ const ContactSection = () => {
           {/* Contact Form */}
           <div className="bg-white rounded-2xl p-8 lg:p-10 shadow-xl border border-gray-100">
             <h3 className="text-3xl font-light text-gray-900 mb-8">
-              Demande de Devis Personnalisé
+              Soumettre votre commande
             </h3>
 
             {submitStatus === 'success' && (
@@ -321,7 +324,7 @@ const ContactSection = () => {
                   ) : (
                     <>
                       <Icon name="PaperAirplaneIcon" size={20} className="inline mr-2 group-hover:scale-110 transition-transform duration-300" />
-                      Envoyer la Demande
+                      Envoyer la commande
                     </>
                   )}
                 </button>
@@ -353,7 +356,7 @@ const ContactSection = () => {
                     const encodedMessage = encodeURIComponent(message);
                     window.open(`https://wa.me/237690900698?text=${encodedMessage}`, '_blank');
                   } else if (info.title === 'Adresse') {
-                    window.open('https://www.google.com/maps/search/?api=1&query=Zone+Industrielle+Bassa+Douala+Cameroun', '_blank');
+                    window.open('https://www.google.com/maps/search/?api=1&query=B.P.+15582+Akwa+Douala+Cameroun', '_blank');
                   }
                 };
 
@@ -388,9 +391,9 @@ const ContactSection = () => {
                   width="100%"
                   height="100%"
                   loading="lazy"
-                  title="Farine Cameroun - Zone Industrielle Bassa, Douala"
+                  title="Sitrabcam - B.P. 15582 Akwa, Douala"
                   referrerPolicy="no-referrer-when-downgrade"
-                  src="https://www.google.com/maps?q=4.0511,-9.7679&z=14&output=embed"
+                  src="https://www.google.com/maps?q=B.P.+15582+Akwa+Douala+Cameroun&z=15&output=embed"
                   className="border-0"
                 />
                 <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm rounded-lg p-3 shadow-lg">

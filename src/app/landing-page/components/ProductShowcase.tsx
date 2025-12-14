@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import AnimatedImage from '../../../components/ui/AnimatedImage';
 import Icon from '../../../components/ui/AppIcon';
 
@@ -24,6 +24,58 @@ interface Product {
 
 const ProductShowcase = () => {
   const [activeProduct, setActiveProduct] = useState(0);
+  const baseUrl = typeof window !== 'undefined' ? window.location.origin : 'https://sitrabcam.com';
+
+  // Ajouter les données structurées JSON-LD pour les produits
+  useEffect(() => {
+    const productSchemas = products.map((product) => ({
+      '@context': 'https://schema.org',
+      '@type': 'Product',
+      name: product.name,
+      description: product.description,
+      image: `${baseUrl}${product.image}`,
+      brand: {
+        '@type': 'Brand',
+        name: 'Sitrabcam',
+      },
+      category: 'Food & Beverage',
+      offers: {
+        '@type': 'Offer',
+        availability: 'https://schema.org/InStock',
+        priceCurrency: 'XAF',
+        itemCondition: 'https://schema.org/NewCondition',
+      },
+      aggregateRating: {
+        '@type': 'AggregateRating',
+        ratingValue: '4.8',
+        reviewCount: '2500',
+      },
+    }));
+
+    // Injecter les scripts JSON-LD
+    productSchemas.forEach((schema, index) => {
+      const scriptId = `product-schema-${index}`;
+      if (document.getElementById(scriptId)) {
+        return;
+      }
+      const script = document.createElement('script');
+      script.id = scriptId;
+      script.type = 'application/ld+json';
+      script.text = JSON.stringify(schema);
+      document.head.appendChild(script);
+    });
+
+    return () => {
+      // Nettoyer les scripts lors du démontage
+      productSchemas.forEach((_, index) => {
+        const scriptId = `product-schema-${index}`;
+        const script = document.getElementById(scriptId);
+        if (script) {
+          script.remove();
+        }
+      });
+    };
+  }, [baseUrl]);
 
   const products: Product[] = [
   {

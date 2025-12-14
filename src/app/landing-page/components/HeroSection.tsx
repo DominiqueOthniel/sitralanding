@@ -17,7 +17,7 @@ const HeroSection = ({ onOrderClick, onWhatsAppClick }: HeroSectionProps) => {
 
 
   return (
-    <section id="accueil" className="relative min-h-screen bg-gradient-to-b from-gray-50 to-white pt-20">
+    <section id="accueil" className="relative min-h-screen bg-gradient-to-b from-gray-50 to-white pt-20" itemScope itemType="https://schema.org/Organization">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-24 lg:py-32">
         <div className="grid lg:grid-cols-2 gap-20 items-center">
           {/* Content */}

@@ -1,0 +1,21 @@
+# robots.txt pour Sitrabcam
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://sitrabcam.com/sitemap.xml
+
+# Désactiver l'indexation des fichiers de développement
+Disallow: /_next/
+Disallow: /api/
+Disallow: /debug.log
+
+# Autoriser les ressources statiques
+Allow: /assets/
+Allow: /logo.png
+Allow: /favicon.ico
+
+# Crawl-delay pour éviter la surcharge
+Crawl-delay: 1
+
+

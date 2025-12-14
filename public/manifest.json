@@ -1,0 +1,29 @@
+{
+  "name": "Sitrabcam - Farine Premium au Cameroun",
+  "short_name": "Sitrabcam",
+  "description": "Leader de la production de farine premium au Cameroun. Farine enrichie en fer, zinc, acide folique et vitamine B12.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#16a34a",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["food", "business"],
+  "lang": "fr-CM",
+  "dir": "ltr"
+}
+
+
