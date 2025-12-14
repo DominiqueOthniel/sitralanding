@@ -42,16 +42,17 @@ const nextConfig = {
       optimizeCss: true,
     },
     
-    webpack(config) {
-      config.module.rules.push({
-        test: /\.(jsx|tsx)$/,
-        exclude: [/node_modules/],
-        use: [{
-          loader: '@dhiwise/component-tagger/nextLoader',
-        }],
-      });
-      return config;
-    },
+    // Webpack config - loader component-tagger retiré pour éviter les erreurs de build
+    // webpack(config) {
+    //   config.module.rules.push({
+    //     test: /\.(jsx|tsx)$/,
+    //     exclude: [/node_modules/],
+    //     use: [{
+    //       loader: '@dhiwise/component-tagger/nextLoader',
+    //     }],
+    //   });
+    //   return config;
+    // },
   };
   
   export default nextConfig;
