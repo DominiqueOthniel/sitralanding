@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+    // EXPORT STATIQUE : Génère un site HTML pur (pas besoin de Node.js)
+    output: 'export',
+    
     // Désactiver les source maps en production pour améliorer les performances
     productionBrowserSourceMaps: false,
     distDir: process.env.DIST_DIR || '.next',
@@ -15,8 +18,9 @@ const nextConfig = {
       ignoreDuringBuilds: true,
     },
     
-    // Optimisation des images
+    // Optimisation des images (unoptimized pour l'export statique)
     images: {
+      unoptimized: true, // Requis pour l'export statique
       remotePatterns: [
         {
           protocol: 'https',

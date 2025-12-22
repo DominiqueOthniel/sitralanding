@@ -113,7 +113,7 @@ const ContactSection = () => {
     // Ouvrir WhatsApp
     window.open(whatsappUrl, '_blank');
     
-    setIsSubmitting(false);
+      setIsSubmitting(false);
   };
 
   const handleWhatsAppContact = () => {
