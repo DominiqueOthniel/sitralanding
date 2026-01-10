@@ -28,10 +28,14 @@ const LandingPageInteractive = () => {
   const handleOrderClick = () => {
     if (!isHydrated) return;
     
+    // Disable smooth scroll on mobile for better performance
+    const isMobile = window.innerWidth <= 768;
+    const scrollBehavior = isMobile ? 'auto' : 'smooth';
+    
     // Scroll to contact section
     const contactSection = document.getElementById('contact');
     if (contactSection) {
-      contactSection?.scrollIntoView({ behavior: 'smooth' });
+      contactSection?.scrollIntoView({ behavior: scrollBehavior as ScrollBehavior });
     }
   };
 

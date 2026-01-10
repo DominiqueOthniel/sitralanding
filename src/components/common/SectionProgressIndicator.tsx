@@ -71,6 +71,10 @@ function SectionProgressIndicator({ className = '' }: SectionProgressIndicatorPr
   };
 
   const handleSectionClick = (sectionId: string) => {
+    // Disable smooth scroll on mobile for better performance
+    const isMobile = window.innerWidth <= 768;
+    const scrollBehavior = isMobile ? 'auto' : 'smooth';
+    
     const element = document.getElementById(sectionId);
     if (element) {
       const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
@@ -78,12 +82,12 @@ function SectionProgressIndicator({ className = '' }: SectionProgressIndicatorPr
       
       window.scrollTo({
         top: Math.max(0, offsetPosition),
-        behavior: 'smooth',
+        behavior: scrollBehavior as ScrollBehavior,
       });
     } else if (sectionId === 'accueil') {
       window.scrollTo({
         top: 0,
-        behavior: 'smooth',
+        behavior: scrollBehavior as ScrollBehavior,
       });
     }
   };

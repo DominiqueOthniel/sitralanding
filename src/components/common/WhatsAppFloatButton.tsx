@@ -82,7 +82,7 @@ function WhatsAppFloatButton({
 
   return (
     <div
-      className={`fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-[200] transition-all duration-300 ease-in-out ${
+      className={`hidden md:flex fixed bottom-6 right-6 z-[200] transition-all duration-300 ease-in-out ${
         isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
       } ${className}`}
     >

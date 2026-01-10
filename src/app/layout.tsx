@@ -25,8 +25,39 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr" className="scroll-smooth md:scroll-smooth">
+    <html lang="fr" className="scroll-smooth">
       <body className="antialiased text-gray-900 bg-white">{children}
+
+        {/* Optimize scroll performance on mobile - disable transitions during scroll */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                if (window.innerWidth <= 768) {
+                  let scrollTimer = null;
+                  let isScrolling = false;
+                  
+                  function handleScrollStart() {
+                    if (!isScrolling) {
+                      isScrolling = true;
+                      document.documentElement.classList.add('scrolling');
+                      document.body.classList.add('scrolling');
+                    }
+                    
+                    clearTimeout(scrollTimer);
+                    scrollTimer = setTimeout(function() {
+                      isScrolling = false;
+                      document.documentElement.classList.remove('scrolling');
+                      document.body.classList.remove('scrolling');
+                    }, 150);
+                  }
+                  
+                  window.addEventListener('scroll', handleScrollStart, { passive: true });
+                }
+              })();
+            `,
+          }}
+        />
 
         {/* Scripts chargés de manière asynchrone pour améliorer les performances */}
         <script 

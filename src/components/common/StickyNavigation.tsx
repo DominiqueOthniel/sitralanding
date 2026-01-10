@@ -112,6 +112,10 @@ function StickyNavigation({ className = '' }: StickyNavigationProps) {
     
     setActiveSection(id);
     
+    // Disable smooth scroll on mobile for better performance
+    const isMobile = window.innerWidth <= 768;
+    const scrollBehavior = isMobile ? 'auto' : 'smooth';
+    
     // Find the element with a small delay to ensure DOM is ready
     setTimeout(() => {
       const element = document.getElementById(id);
@@ -123,7 +127,7 @@ function StickyNavigation({ className = '' }: StickyNavigationProps) {
         
         window.scrollTo({
           top: Math.max(0, offsetPosition),
-          behavior: 'smooth',
+          behavior: scrollBehavior as ScrollBehavior,
         });
       } else {
         // Fallback: try scrolling to hash
@@ -132,7 +136,7 @@ function StickyNavigation({ className = '' }: StickyNavigationProps) {
         if (id === 'accueil') {
           window.scrollTo({
             top: 0,
-            behavior: 'smooth',
+            behavior: scrollBehavior as ScrollBehavior,
           });
         }
       }

@@ -206,9 +206,13 @@ const AboutSection = () => {
               type="button"
               className="bg-transparent border-2 border-white px-8 py-3 rounded-lg font-semibold hover:bg-white/10 transition-all duration-300"
               onClick={() => {
+                // Disable smooth scroll on mobile for better performance
+                const isMobile = window.innerWidth <= 768;
+                const scrollBehavior = isMobile ? 'auto' : 'smooth';
+                
                 const element = document.getElementById('catalogue');
                 if (element) {
-                  element.scrollIntoView({ behavior: 'smooth' });
+                  element.scrollIntoView({ behavior: scrollBehavior as ScrollBehavior });
                 }
               }}
             >

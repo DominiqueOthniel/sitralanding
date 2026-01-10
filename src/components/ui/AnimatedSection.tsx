@@ -60,22 +60,28 @@ function AnimatedSection({
     };
   }, [threshold, hasAnimated, stagger, duration]);
 
+  // Disable animations on mobile for better scroll performance
+  const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
+  
   const animationClasses = {
-    fadeIn: isVisible ? 'opacity-100' : 'opacity-0',
-    slideUp: isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0',
-    slideLeft: isVisible ? 'translate-x-0 opacity-100' : 'translate-x-10 opacity-0',
-    slideRight: isVisible ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0',
-    scale: isVisible ? 'scale-100 opacity-100' : 'scale-95 opacity-0',
-    fadeInUp: isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0',
+    fadeIn: isVisible || isMobile ? 'opacity-100' : 'opacity-0',
+    slideUp: isVisible || isMobile ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0',
+    slideLeft: isVisible || isMobile ? 'translate-x-0 opacity-100' : 'translate-x-10 opacity-0',
+    slideRight: isVisible || isMobile ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0',
+    scale: isVisible || isMobile ? 'scale-100 opacity-100' : 'scale-95 opacity-0',
+    fadeInUp: isVisible || isMobile ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0',
   };
 
   return (
     <div
       ref={ref}
-      className={`transition-all ease-out ${animationClasses[animation]} ${className}`}
-      style={{
+      className={`${isMobile ? '' : 'transition-all ease-out'} ${animationClasses[animation]} ${className}`}
+      style={isMobile ? {} : {
         transitionDuration: `${duration}ms`,
         transitionDelay: `${delay}ms`,
+        transform: 'translate3d(0,0,0)', // Force GPU acceleration
+        backfaceVisibility: 'hidden',
+        perspective: 1000,
       }}
     >
       {children}
