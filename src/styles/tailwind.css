@@ -689,3 +689,139 @@ html, body {
     scroll-behavior: smooth;
   }
 }
+
+/* ===== MOBILE-FIRST OPTIMIZATIONS ===== */
+
+/* Touch-friendly targets - minimum 44x44px per Apple HIG and 48x48px per Material Design */
+@media (max-width: 768px) {
+  button, a.button, input[type="submit"], input[type="button"], .btn {
+    min-height: 48px;
+    min-width: 48px;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Better tap feedback */
+  button:active, a:active {
+    transform: scale(0.95);
+    transition: transform 0.1s ease;
+  }
+  
+  /* Prevent text selection on buttons */
+  button, .btn {
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+  }
+  
+  /* Better form inputs on mobile */
+  input, select, textarea {
+    font-size: 16px !important; /* Prevent iOS zoom on focus */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+  
+  /* Better select dropdowns */
+  select {
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iOCIgdmlld0JveD0iMCAwIDEyIDgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTEgMUw2IDZMMTEgMSIgc3Ryb2tlPSIjMzMzIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjwvc3ZnPg==');
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 2.5rem;
+  }
+  
+  /* Larger, more readable text */
+  body {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  
+  /* Better spacing for content */
+  section {
+    padding: 2.5rem 1rem;
+  }
+  
+  /* Optimize images */
+  img {
+    max-width: 100%;
+    height: auto;
+    image-rendering: -webkit-optimize-contrast;
+  }
+}
+
+/* Extra small devices (phones < 375px) */
+@media (max-width: 374px) {
+  body {
+    font-size: 15px;
+  }
+  
+  h1 {
+    font-size: 1.75rem !important;
+  }
+  
+  h2 {
+    font-size: 1.5rem !important;
+  }
+  
+  h3 {
+    font-size: 1.25rem !important;
+  }
+  
+  .container {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+}
+
+/* Large phones (≥ 375px) */
+@media (min-width: 375px) and (max-width: 767px) {
+  /* Optimize for standard mobile sizes like iPhone X, 11, 12, 13, 14 */
+  .section-content h1 {
+    font-size: clamp(2rem, 6vw, 2.75rem);
+  }
+  
+  .section-content h2 {
+    font-size: clamp(1.5rem, 5vw, 2.25rem);
+  }
+}
+
+/* Prevent font boosting on Android */
+html {
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* Better focus states for accessibility */
+@media (max-width: 768px) {
+  *:focus-visible {
+    outline: 3px solid rgba(34, 139, 34, 0.6);
+    outline-offset: 2px;
+  }
+}
+
+/* Optimize for notched devices (iPhone X and newer) */
+@supports (padding-top: env(safe-area-inset-top)) {
+  body {
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+/* Better performance on mobile */
+@media (max-width: 768px) {
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Reduce motion on mobile for battery */
+  * {
+    will-change: auto !important;
+  }
+  
+  /* Prevent overscroll bounce on iOS */
+  body {
+    overscroll-behavior-y: none;
+  }
+}

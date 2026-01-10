@@ -20,59 +20,59 @@ const ImageGallerySection = () => {
   const galleryImages: GalleryImage[] = [
     {
       id: 'galerie-1',
-      src: '/assets/images/galerie-1.jpg',
-      alt: 'Installation de production Sitrabcam',
-      title: 'Installation de Production',
-      description: 'Vue d\'ensemble de nos installations modernes',
+      src: '/assets/images/usine-exterieur.jpg',
+      alt: 'Vue extérieure de nos installations Sitrabcam',
+      title: 'Nos Installations',
+      description: 'Infrastructure moderne de production à Douala',
       category: 'installation'
     },
     {
       id: 'galerie-2',
-      src: '/assets/images/galerie-2.jpg',
-      alt: 'Équipements de transformation du blé',
-      title: 'Équipements Modernes',
-      description: 'Machines de dernière génération pour une qualité optimale',
+      src: '/assets/images/machines-production.jpg',
+      alt: 'Machines industrielles de production',
+      title: 'Équipements de Production',
+      description: 'Technologie de pointe pour une farine de qualité supérieure',
       category: 'production'
     },
     {
       id: 'galerie-3',
-      src: '/assets/images/galerie-3.jpg',
-      alt: 'Laboratoire de contrôle qualité',
-      title: 'Contrôle Qualité',
-      description: 'Tests rigoureux sur chaque lot de farine',
+      src: '/assets/images/laboratoire-analyse-qualite.jpg',
+      alt: 'Laboratoire d\'analyse qualité avec équipement SD MATIC',
+      title: 'Contrôle Qualité Rigoureux',
+      description: 'Analyses en temps réel de chaque lot de farine',
       category: 'laboratoire'
     },
     {
       id: 'galerie-4',
-      src: '/assets/images/galerie-4.jpg',
-      alt: 'Sacs de farine premium',
-      title: 'Produits Finis',
-      description: 'Nos farines conditionnées avec soin',
+      src: '/assets/images/entrepot-production.jpg',
+      alt: 'Entrepôt avec stocks de sacs de farine',
+      title: 'Capacité de Production',
+      description: 'Stocks importants pour répondre à vos besoins',
       category: 'produits'
     },
     {
       id: 'galerie-5',
-      src: '/assets/images/galerie-5.jpg',
-      alt: 'Équipe professionnelle Sitrabcam',
-      title: 'Notre Équipe',
-      description: 'Des professionnels dévoués à l\'excellence',
-      category: 'equipe'
+      src: '/assets/images/zone-chargement.jpg',
+      alt: 'Zone de chargement et livraison avec camion',
+      title: 'Logistique & Livraison',
+      description: 'Système de livraison efficace vers toutes les régions',
+      category: 'installation'
     },
     {
       id: 'galerie-6',
-      src: '/assets/images/galerie-6.jpg',
-      alt: 'Processus de production',
-      title: 'Processus de Production',
-      description: 'Transformation du blé en farine premium',
-      category: 'production'
+      src: '/assets/images/laboratoire-controle.jpg',
+      alt: 'Laboratoire de contrôle qualité complet',
+      title: 'Laboratoire de Contrôle',
+      description: 'Tests approfondis: humidité, protéines, gluten, cendres',
+      category: 'laboratoire'
     },
     {
       id: 'galerie-7',
       src: '/assets/images/galerie-7.jpg',
       alt: 'Installations Sitrabcam',
-      title: 'Nos Installations',
-      description: 'Infrastructure moderne et performante',
-      category: 'installation'
+      title: 'Notre Savoir-Faire',
+      description: 'Plus de 20 ans d\'excellence dans la production de farine',
+      category: 'production'
     }
   ];
 
@@ -115,33 +115,33 @@ const ImageGallerySection = () => {
       <div 
         className="absolute inset-0 z-0 section-bg-image"
         style={{
-          backgroundImage: 'url(/assets/images/galerie-4.jpg)'
+          backgroundImage: 'url(/assets/images/entrepot-production.jpg)'
         }}
       >
         <div className="section-bg-overlay-strong"></div>
       </div>
 
       <div className="container mx-auto px-4 section-content">
-        {/* Section Header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
+        {/* Section Header - Mobile Optimized */}
+        <div className="text-center mb-10 sm:mb-16">
+          <div className="inline-flex items-center bg-green-100 text-green-800 px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-semibold mb-4 sm:mb-6">
             <Icon name="PhotoIcon" size={16} className="mr-2" />
             Galerie Photos
           </div>
           
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 px-4">
             Découvrez{' '}
             <span className="text-green-600">Nos Installations</span>
           </h2>
           
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto px-4">
             Explorez nos installations modernes, nos équipements de pointe et notre processus 
             de production qui garantit une qualité supérieure à chaque étape.
           </p>
         </div>
 
-        {/* Category Filter */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
+        {/* Category Filter - Mobile Optimized */}
+        <div className="flex flex-wrap justify-center gap-2 sm:gap-3 lg:gap-4 mb-8 sm:mb-12 px-4">
           {categories.map((category) => (
             <button
               key={category.id}
@@ -149,27 +149,27 @@ const ImageGallerySection = () => {
                 setActiveCategory(category.id);
                 setSelectedImage(null);
               }}
-              className={`flex items-center px-6 py-3 rounded-full font-semibold transition-all duration-250 ${
+              className={`flex items-center px-4 sm:px-5 lg:px-6 py-2.5 sm:py-3 rounded-full text-sm sm:text-base font-semibold transition-all duration-250 active:scale-95 touch-manipulation min-h-[40px] ${
                 activeCategory === category.id
                   ? 'bg-green-600 text-white shadow-lg'
-                  : 'bg-white text-gray-600 hover:bg-gray-100 border border-gray-200'
+                  : 'bg-white text-gray-600 hover:bg-gray-100 active:bg-gray-200 border border-gray-200'
               }`}
             >
-              <Icon name={category.icon as any} size={16} className="mr-2" />
-              {category.label}
+              <Icon name={category.icon as any} size={16} className="mr-1.5 sm:mr-2" />
+              <span className="whitespace-nowrap">{category.label}</span>
             </button>
           ))}
         </div>
 
-        {/* Image Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Image Grid - Mobile Optimized */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {filteredImages.map((image, index) => (
             <div
               key={image.id}
               onClick={() => openLightbox(index)}
-              className="group relative bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer transform hover:scale-105"
+              className="group relative bg-white rounded-lg sm:rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer transform hover:scale-105 active:scale-95 touch-manipulation"
             >
-              <div className="relative h-64 overflow-hidden bg-gray-200">
+              <div className="relative h-56 sm:h-64 overflow-hidden bg-gray-200">
                 <Image
                   src={image.src}
                   alt={image.alt}

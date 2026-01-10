@@ -1,0 +1,8 @@
+# Version ultra-minimaliste pour Plesk
+# Si même celle-ci ne fonctionne pas, supprimez le fichier .htaccess
+
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /index.html [L]
+

@@ -82,7 +82,7 @@ function WhatsAppFloatButton({
 
   return (
     <div
-      className={`fixed bottom-6 right-6 z-[200] transition-all duration-300 ease-in-out ${
+      className={`fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-[200] transition-all duration-300 ease-in-out ${
         isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
       } ${className}`}
     >
@@ -90,13 +90,13 @@ function WhatsAppFloatButton({
         <div className="absolute inset-0 bg-green-500 rounded-full animate-ping opacity-20"></div>
         <button
           onClick={handleWhatsAppClick}
-          className="relative bg-green-500 hover:bg-green-600 text-white rounded-full p-4 shadow-lg hover:shadow-xl transition-all duration-250 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-green-200"
+          className="relative bg-green-500 hover:bg-green-600 active:bg-green-700 text-white rounded-full p-4 sm:p-4 md:p-5 shadow-lg hover:shadow-xl transition-all duration-250 ease-in-out transform hover:scale-105 active:scale-95 focus:outline-none focus:ring-4 focus:ring-green-200 touch-manipulation min-w-[56px] min-h-[56px] sm:min-w-[64px] sm:min-h-[64px] flex items-center justify-center"
           aria-label="Contacter via WhatsApp"
         >
           <Icon 
             name="ChatBubbleLeftRightIcon" 
-            size={24} 
-            className="text-white"
+            size={28} 
+            className="text-white sm:w-6 sm:h-6"
           />
         </button>
       </div>

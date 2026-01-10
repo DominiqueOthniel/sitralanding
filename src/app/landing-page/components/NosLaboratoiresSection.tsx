@@ -13,15 +13,15 @@ const NosLaboratoiresSection = () => {
       location: 'Douala - Siège Principal',
       description: 'Notre laboratoire principal effectue 12 tests différents sur chaque lot de farine avant conditionnement.',
       equipment: [
-        'Analyseur de protéines',
+        'Analyseur de protéines (SD MATIC)',
         'Testeur de force boulangère (Alvéographe)',
         'Analyseur d\'humidité',
         'Testeur de cendres',
-        'Analyseur de gluten',
-        'Microscope électronique'
+        'Analyseur de gluten (GLUTOMATIC)',
+        'Équipement HTDS'
       ],
-      image: '/assets/images/galerie-3.jpg',
-      alt: 'Laboratoire de contrôle qualité moderne avec équipements d\'analyse'
+      image: '/assets/images/laboratoire-analyse-qualite.jpg',
+      alt: 'Laboratoire de contrôle qualité moderne avec équipements d\'analyse SD MATIC'
     },
     {
       name: 'Laboratoire de Recherche & Développement',
@@ -35,7 +35,7 @@ const NosLaboratoiresSection = () => {
         'Chambre climatique',
         'Équipements de test sensoriel'
       ],
-      image: '/assets/images/galerie-3.jpg',
+      image: '/assets/images/laboratoire-controle.jpg',
       alt: 'Laboratoire de recherche et développement avec équipements scientifiques'
     },
     {
@@ -50,7 +50,7 @@ const NosLaboratoiresSection = () => {
         'Analyseur de mycotoxines',
         'Système PCR'
       ],
-      image: '/assets/images/galerie-3.jpg',
+      image: '/assets/images/laboratoire-controle.jpg',
       alt: 'Laboratoire de microbiologie avec équipements stériles'
     }
   ];
@@ -61,7 +61,7 @@ const NosLaboratoiresSection = () => {
       <div 
         className="absolute inset-0 z-0 section-bg-image"
         style={{
-          backgroundImage: 'url(/assets/images/galerie-3.jpg)'
+          backgroundImage: 'url(/assets/images/laboratoire-controle.jpg)'
         }}
       >
         <div className="section-bg-overlay-strong"></div>

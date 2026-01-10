@@ -52,7 +52,7 @@ const ContactSection = () => {
     {
       icon: 'MapPinIcon',
       title: 'Adresse',
-      details: ['B.P. 15582 Akwa', 'Douala, Cameroun'],
+      details: ['BP 9442 Bonomo ba Mbenguè', 'Moungo, Douala, Cameroun'],
       action: 'Voir sur carte'
     }
   ];
@@ -143,10 +143,10 @@ const ContactSection = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
-          {/* Contact Form */}
-          <div className="bg-white rounded-2xl p-8 lg:p-10 shadow-xl border border-gray-100">
-            <h3 className="text-3xl font-light text-gray-900 mb-8">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12">
+          {/* Contact Form - Mobile Optimized */}
+          <div className="bg-white rounded-xl sm:rounded-2xl p-5 sm:p-8 lg:p-10 shadow-xl border border-gray-100">
+            <h3 className="text-2xl sm:text-3xl font-light text-gray-900 mb-6 sm:mb-8">
               Soumettre votre commande
             </h3>
 
@@ -175,10 +175,10 @@ const ContactSection = () => {
               </div>
             )}
 
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
+            <form onSubmit={handleSubmit} className="space-y-5 sm:space-y-6">
+              <div className="grid md:grid-cols-2 gap-4 sm:gap-6">
                 <div>
-                  <label className="block text-sm font-semibold text-gray-900 mb-2">
+                  <label className="block text-base sm:text-sm font-semibold text-gray-900 mb-2">
                     Nom complet *
                   </label>
                   <input
@@ -187,13 +187,13 @@ const ContactSection = () => {
                     value={formData.name}
                     onChange={handleInputChange}
                     required
-                    className="w-full p-4 border border-gray-200 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-gray-900 transition-all duration-200 bg-white hover:border-gray-300"
+                    className="w-full px-4 py-3.5 sm:p-4 text-base border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-gray-900 transition-all duration-200 bg-white hover:border-gray-300 min-h-[48px] touch-manipulation"
                     placeholder="Votre nom"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-gray-900 mb-2">
+                  <label className="block text-base sm:text-sm font-semibold text-gray-900 mb-2">
                     Entreprise *
                   </label>
                   <input
@@ -202,15 +202,15 @@ const ContactSection = () => {
                     value={formData.business}
                     onChange={handleInputChange}
                     required
-                    className="w-full p-4 border border-gray-200 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-gray-900 transition-all duration-200 bg-white hover:border-gray-300"
+                    className="w-full px-4 py-3.5 sm:p-4 text-base border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-gray-900 transition-all duration-200 bg-white hover:border-gray-300 min-h-[48px] touch-manipulation"
                     placeholder="Nom de votre entreprise"
                   />
                 </div>
               </div>
 
-              <div className="grid md:grid-cols-2 gap-6">
+              <div className="grid md:grid-cols-2 gap-4 sm:gap-6">
                 <div>
-                  <label className="block text-sm font-semibold text-gray-900 mb-2">
+                  <label className="block text-base sm:text-sm font-semibold text-gray-900 mb-2">
                     Email *
                   </label>
                   <input
@@ -219,13 +219,13 @@ const ContactSection = () => {
                     value={formData.email}
                     onChange={handleInputChange}
                     required
-                    className="w-full p-4 border border-gray-200 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-gray-900 transition-all duration-200 bg-white hover:border-gray-300"
+                    className="w-full px-4 py-3.5 sm:p-4 text-base border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-gray-900 transition-all duration-200 bg-white hover:border-gray-300 min-h-[48px] touch-manipulation"
                     placeholder="votre@email.com"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-gray-900 mb-2">
+                  <label className="block text-base sm:text-sm font-semibold text-gray-900 mb-2">
                     Téléphone *
                   </label>
                   <input
@@ -234,22 +234,22 @@ const ContactSection = () => {
                     value={formData.phone}
                     onChange={handleInputChange}
                     required
-                    className="w-full p-4 border border-gray-200 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-gray-900 transition-all duration-200 bg-white hover:border-gray-300"
+                    className="w-full px-4 py-3.5 sm:p-4 text-base border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-gray-900 transition-all duration-200 bg-white hover:border-gray-300 min-h-[48px] touch-manipulation"
                     placeholder="+237 6XX XXX XXX"
                   />
                 </div>
               </div>
 
-              <div className="grid md:grid-cols-2 gap-6">
+              <div className="grid md:grid-cols-2 gap-4 sm:gap-6">
                 <div>
-                  <label className="block text-sm font-semibold text-gray-900 mb-2">
+                  <label className="block text-base sm:text-sm font-semibold text-gray-900 mb-2">
                     Ville
                   </label>
                   <select
                     name="city"
                     value={formData.city}
                     onChange={handleInputChange}
-                    className="w-full p-4 border border-gray-200 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-gray-900 transition-all duration-200 bg-white hover:border-gray-300"
+                    className="w-full px-4 py-3.5 sm:p-4 text-base border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-gray-900 transition-all duration-200 bg-white hover:border-gray-300 min-h-[48px] touch-manipulation appearance-none bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iOCIgdmlld0JveD0iMCAwIDEyIDgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTEgMUw2IDZMMTEgMSIgc3Ryb2tlPSIjMzMzIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjwvc3ZnPg==')] bg-[position:right_1rem_center] bg-no-repeat"
                     aria-label="Ville"
                   >
                     <option value="">Sélectionnez votre ville</option>
@@ -260,14 +260,14 @@ const ContactSection = () => {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-gray-900 mb-2">
+                  <label className="block text-base sm:text-sm font-semibold text-gray-900 mb-2">
                     Volume mensuel
                   </label>
                   <select
                     name="monthlyVolume"
                     value={formData.monthlyVolume}
                     onChange={handleInputChange}
-                    className="w-full p-4 border border-gray-200 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-gray-900 transition-all duration-200 bg-white hover:border-gray-300"
+                    className="w-full px-4 py-3.5 sm:p-4 text-base border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-gray-900 transition-all duration-200 bg-white hover:border-gray-300 min-h-[48px] touch-manipulation appearance-none bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iOCIgdmlld0JveD0iMCAwIDEyIDgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTEgMUw2IDZMMTEgMSIgc3Ryb2tlPSIjMzMzIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjwvc3ZnPg==')] bg-[position:right_1rem_center] bg-no-repeat"
                     aria-label="Volume mensuel"
                   >
                     <option value="">Sélectionnez votre volume</option>
@@ -279,14 +279,14 @@ const ContactSection = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-gray-900 mb-2">
+                <label className="block text-base sm:text-sm font-semibold text-gray-900 mb-2">
                   Type de produit recherché
                 </label>
                 <select
                   name="productType"
                   value={formData.productType}
                   onChange={handleInputChange}
-                  className="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                  className="w-full px-4 py-3.5 sm:p-4 text-base border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-gray-900 transition-all duration-200 bg-white hover:border-gray-300 min-h-[48px] touch-manipulation appearance-none bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iOCIgdmlld0JveD0iMCAwIDEyIDgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTEgMUw2IDZMMTEgMSIgc3Ryb2tlPSIjMzMzIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjwvc3ZnPg==')] bg-[position:right_1rem_center] bg-no-repeat"
                   aria-label="Type de produit recherché"
                 >
                   <option value="">Sélectionnez un produit</option>
@@ -297,7 +297,7 @@ const ContactSection = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-gray-900 mb-2">
+                <label className="block text-base sm:text-sm font-semibold text-gray-900 mb-2">
                   Message (optionnel)
                 </label>
                 <textarea
@@ -305,16 +305,16 @@ const ContactSection = () => {
                   value={formData.message}
                   onChange={handleInputChange}
                   rows={4}
-                  className="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                  className="w-full px-4 py-3.5 sm:p-4 text-base border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-gray-900 transition-all duration-200 bg-white hover:border-gray-300 touch-manipulation resize-y"
                   placeholder="Décrivez vos besoins spécifiques..."
                 />
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-4 pt-4">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4">
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="group flex-1 bg-gray-900 hover:bg-gray-800 disabled:bg-gray-400 text-white px-6 py-4 rounded-lg font-medium transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 disabled:hover:translate-y-0"
+                  className="group flex-1 bg-gray-900 hover:bg-gray-800 active:bg-gray-950 disabled:bg-gray-400 text-white px-6 py-4 rounded-lg font-medium text-base transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:scale-95 disabled:hover:translate-y-0 min-h-[48px] touch-manipulation"
                 >
                   {isSubmitting ? (
                     <>
@@ -391,9 +391,9 @@ const ContactSection = () => {
                   width="100%"
                   height="100%"
                   loading="lazy"
-                  title="Sitrabcam - B.P. 15582 Akwa, Douala"
+                  title="Sitrabcam - BP 9442 Bonomo ba Mbenguè Moungo, Douala"
                   referrerPolicy="no-referrer-when-downgrade"
-                  src="https://www.google.com/maps?q=B.P.+15582+Akwa+Douala+Cameroun&z=15&output=embed"
+                  src="https://www.google.com/maps?q=BP+9442+Bonomo+ba+Mbengue+Moungo+Douala+Cameroun&z=15&output=embed"
                   className="border-0"
                 />
                 <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm rounded-lg p-3 shadow-lg">
