@@ -82,6 +82,7 @@ function StickyNavigation({ className = '' }: StickyNavigationProps) {
     let timeoutId: NodeJS.Timeout;
     let ticking = false;
     
+    // Optimize debounce: increased from 10ms to 50ms for better scroll performance
     const debouncedHandleScroll = () => {
       clearTimeout(timeoutId);
       timeoutId = setTimeout(() => {
@@ -92,7 +93,7 @@ function StickyNavigation({ className = '' }: StickyNavigationProps) {
           });
           ticking = true;
         }
-      }, 10);
+      }, 50); // Increased from 10ms to 50ms for better mobile scroll performance
     };
 
     window.addEventListener('scroll', debouncedHandleScroll, { passive: true });

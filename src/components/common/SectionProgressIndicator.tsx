@@ -22,46 +22,45 @@ function SectionProgressIndicator({ className = '' }: SectionProgressIndicatorPr
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    let ticking = false;
+    
     const handleScroll = () => {
-      const scrollTop = window.pageYOffset;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const scrollPercent = (scrollTop / docHeight) * 100;
-      
-      setScrollProgress(Math.min(scrollPercent, 100));
-      setIsVisible(scrollTop > 100);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+          const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+          const scrollPercent = (scrollTop / docHeight) * 100;
+          
+          setScrollProgress(Math.min(scrollPercent, 100));
+          setIsVisible(scrollTop > 100);
 
-      const sectionElements = sections.map(section => ({
-        ...section,
-        element: document.getElementById(section.id),
-      }));
+          const sectionElements = sections.map(section => ({
+            ...section,
+            element: document.getElementById(section.id),
+          }));
 
-      const currentSectionElement = sectionElements.find(section => {
-        if (!section.element) return false;
-        const rect = section.element.getBoundingClientRect();
-        return rect.top <= 200 && rect.bottom >= 200;
-      });
+          const currentSectionElement = sectionElements.find(section => {
+            if (!section.element) return false;
+            const rect = section.element.getBoundingClientRect();
+            return rect.top <= 200 && rect.bottom >= 200;
+          });
 
-      if (currentSectionElement) {
-        setCurrentSection(currentSectionElement.id);
+          if (currentSectionElement) {
+            setCurrentSection(currentSectionElement.id);
+          }
+          
+          ticking = false;
+        });
+        ticking = true;
       }
     };
 
-    let inThrottle = false;
-    const throttledHandleScroll = () => {
-      if (!inThrottle) {
-        handleScroll();
-        inThrottle = true;
-        setTimeout(() => {
-          inThrottle = false;
-        }, 16);
-      }
-    };
-
-    window.addEventListener('scroll', throttledHandleScroll);
+    // Use passive: true for better scroll performance
+    window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
 
     return () => {
-      window.removeEventListener('scroll', throttledHandleScroll);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 

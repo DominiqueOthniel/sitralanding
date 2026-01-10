@@ -49,20 +49,31 @@ function AnimatedImage({
   }, [threshold]);
 
   useEffect(() => {
-    if (animation === 'parallax' || animation === 'zoom') {
+    // Disable parallax and zoom scroll animations on mobile for better scroll performance
+    const isMobile = window.innerWidth <= 768;
+    
+    if ((animation === 'parallax' || animation === 'zoom') && !isMobile) {
+      let ticking = false;
+      
       const handleScroll = () => {
-        if (ref.current) {
-          const rect = ref.current.getBoundingClientRect();
-          const windowHeight = window.innerHeight;
-          const elementTop = rect.top;
-          const elementHeight = rect.height;
-          
-          // Calculate scroll progress (0 to 1)
-          const scrollProgress = Math.max(0, Math.min(1, 
-            (windowHeight - elementTop) / (windowHeight + elementHeight)
-          ));
-          
-          setScrollY(scrollProgress);
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            if (ref.current) {
+              const rect = ref.current.getBoundingClientRect();
+              const windowHeight = window.innerHeight;
+              const elementTop = rect.top;
+              const elementHeight = rect.height;
+              
+              // Calculate scroll progress (0 to 1)
+              const scrollProgress = Math.max(0, Math.min(1, 
+                (windowHeight - elementTop) / (windowHeight + elementHeight)
+              ));
+              
+              setScrollY(scrollProgress);
+            }
+            ticking = false;
+          });
+          ticking = true;
         }
       };
 
@@ -76,12 +87,23 @@ function AnimatedImage({
   }, [animation]);
 
   const getAnimationStyle = () => {
+    // Disable complex animations on mobile for better scroll performance
+    const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
+    
     const baseStyle: React.CSSProperties = {
-      transition: 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
+      transition: isMobile ? 'opacity 0.3s ease' : 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
     };
 
     switch (animation) {
       case 'parallax':
+        // Disable parallax on mobile, use simple reveal instead
+        if (isMobile) {
+          return {
+            ...baseStyle,
+            transform: 'none',
+            opacity: isVisible ? 1 : (imageLoaded ? 0.8 : 0.5),
+          };
+        }
         return {
           ...baseStyle,
           transform: `translateY(${scrollY * 50 * speed}px) scale(${1 + scrollY * 0.1})`,
@@ -89,6 +111,14 @@ function AnimatedImage({
         };
       
       case 'zoom':
+        // Disable zoom scroll animation on mobile, use simple reveal instead
+        if (isMobile) {
+          return {
+            ...baseStyle,
+            transform: 'none',
+            opacity: isVisible ? 1 : (imageLoaded ? 0.8 : 0.5),
+          };
+        }
         return {
           ...baseStyle,
           transform: `scale(${1 + scrollY * 0.3})`,
@@ -144,11 +174,14 @@ function AnimatedImage({
   const isExternal = src.startsWith('http://') || src.startsWith('https://');
   const isLocal = !isExternal && (src.startsWith('/') || src.startsWith('./') || src.startsWith('data:'));
 
+  // Disable will-change on mobile for better scroll performance
+  const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
+  
   return (
     <div
       ref={ref}
       className={`relative overflow-hidden ${className}`}
-      style={{ willChange: 'transform, opacity' }}
+      style={isMobile ? {} : { willChange: 'transform, opacity' }}
     >
       {isExternal ? (
         // Pour les images externes, utiliser img avec lazy loading
