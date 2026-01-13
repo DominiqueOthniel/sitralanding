@@ -11,7 +11,7 @@ const NosLaboratoiresSection = () => {
     {
       name: 'Laboratoire de Contrôle Qualité',
       location: 'Douala - Siège Principal',
-      description: 'Notre laboratoire principal effectue 12 tests différents sur chaque lot de farine avant conditionnement.',
+      description: 'Notre laboratoire veille à la qualité des matières premières, des encours de production ainsi que des produits finis.',
       equipment: [
         'Analyseur de protéines (SD MATIC)',
         'Testeur de force boulangère (Alvéographe)',
