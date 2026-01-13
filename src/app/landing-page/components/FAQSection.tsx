@@ -50,7 +50,7 @@ const FAQSection = () => {
       id: 'delivery-1',
       category: 'delivery',
       question: 'Quels sont vos délais de livraison ?',
-      answer: 'Nos délais varient selon votre localisation : Douala et Yaoundé 24-48h, autres grandes villes 48-72h. Pour les commandes urgentes, nous proposons un service express sous 24h moyennant un supplément. Toutes nos livraisons sont trackées en temps réel via SMS et WhatsApp.'
+      answer: 'Nos délais varient selon votre localisation : Douala et Yaoundé 24-48h, autres grandes villes 48-72h. Pour les régions du Nord, les délais peuvent être plus longs compte tenu de la distance. Toutes nos livraisons sont trackées en temps réel via SMS et WhatsApp.'
     },
     {
       id: 'delivery-2',

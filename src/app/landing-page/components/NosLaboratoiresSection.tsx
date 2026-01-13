@@ -20,6 +20,15 @@ const NosLaboratoiresSection = () => {
         'Analyseur de gluten (GLUTOMATIC)',
         'Équipement HTDS'
       ],
+      analyses: [
+        'Analyses physico-chimiques (teneur en eau, teneur en protéines, cendres, etc.)',
+        'Taux d\'amidon endommagé',
+        'Falling Number / temps de chute',
+        'Granulométrie de la farine et du blé',
+        'Poids de mille grains',
+        'Poids spécifique',
+        'Analyses rhéologiques (élasticité, extensibilité, indice d\'élasticité, force, etc.)'
+      ],
       image: '/assets/images/laboratoire-analyse-qualite.jpg',
       alt: 'Laboratoire de contrôle qualité moderne avec équipements d\'analyse SD MATIC'
     },
@@ -35,23 +44,9 @@ const NosLaboratoiresSection = () => {
         'Chambre climatique',
         'Équipements de test sensoriel'
       ],
+      analyses: [],
       image: '/assets/images/laboratoire-controle.jpg',
       alt: 'Laboratoire de recherche et développement avec équipements scientifiques'
-    },
-    {
-      name: 'Laboratoire de Microbiologie',
-      location: 'Douala - Siège Principal',
-      description: 'Spécialisé dans les analyses microbiologiques et la détection de contaminants pour garantir la sécurité alimentaire.',
-      equipment: [
-        'Hotte à flux laminaire',
-        'Étuve de culture',
-        'Autoclave',
-        'Microscope optique',
-        'Analyseur de mycotoxines',
-        'Système PCR'
-      ],
-      image: '/assets/images/laboratoire-controle.jpg',
-      alt: 'Laboratoire de microbiologie avec équipements stériles'
     }
   ];
 
@@ -149,6 +144,24 @@ const NosLaboratoiresSection = () => {
                   ))}
                 </div>
               </div>
+
+              {/* Analyses Effectuées - Only for Contrôle Qualité */}
+              {laboratories[activeLab].analyses && laboratories[activeLab].analyses.length > 0 && (
+                <div className="mb-8">
+                  <h4 className="text-lg font-bold text-gray-900 mb-4 flex items-center">
+                    <Icon name="BeakerIcon" size={20} className="mr-2" />
+                    Quelques analyses effectuées
+                  </h4>
+                  <div className="space-y-2">
+                    {laboratories[activeLab].analyses.map((analyse, idx) => (
+                      <div key={idx} className="flex items-start">
+                        <span className="text-gray-400 mr-2">•</span>
+                        <span className="text-gray-700">{analyse}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
 
               {/* Stats */}
               <div className="grid grid-cols-2 gap-4 pt-6 border-t border-gray-200">

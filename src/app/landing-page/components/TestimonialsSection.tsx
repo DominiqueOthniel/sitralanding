@@ -44,15 +44,15 @@ const AboutSection = () => {
     },
     {
       year: '2015',
-      title: 'Certification et innovation',
-      description: 'Mise en place du laboratoire interne, certification ISO 22000 et traçabilité numérique complète du grain au sac.',
+      title: 'Innovation et traçabilité',
+      description: 'Renforcement du laboratoire interne et mise en place de la traçabilité numérique complète du grain au sac.',
     },
   ];
 
   const stats = [
     { value: '2 500+', label: 'Partenaires actifs au Cameroun' },
-    { value: '98%', label: 'Satisfaction sur les audits qualité' },
-    { value: '24h', label: 'Délai moyen de livraison nationale' },
+    { value: '12', label: 'Tests qualité par lot' },
+    { value: '20+', label: 'Années d\'expérience' },
   ];
 
   return (
@@ -161,7 +161,7 @@ const AboutSection = () => {
             <ul className="space-y-4 text-gray-600">
               <li className="flex items-start">
                 <Icon name="CheckCircleIcon" size={18} className="text-green-600 mr-3 mt-1" />
-                <span>Livraisons garanties en 24h sur Douala et Yaoundé, 72h partout ailleurs.</span>
+                <span>Livraisons garanties en 24-48h sur Douala et Yaoundé, délais variables selon la destination pour les autres régions.</span>
               </li>
               <li className="flex items-start">
                 <Icon name="CheckCircleIcon" size={18} className="text-green-600 mr-3 mt-1" />

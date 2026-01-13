@@ -18,8 +18,8 @@ const SolutionSection = () => {
   },
   {
     title: "Tests Laboratoire",
-    description: "Chaque lot passe par 12 tests en laboratoire certifié avant conditionnement.",
-    details: "Tests microbiologiques, analyse nutritionnelle, contrôle granulométrie, vérification pH",
+    description: "Chaque lot passe par 12 tests en laboratoire interne avant conditionnement.",
+    details: "Analyses physico-chimiques, contrôle granulométrie, analyses rhéologiques, vérification qualité",
     icon: "BeakerIcon",
     image: "https://images.unsplash.com/photo-1707944745905-1ba3ef7c0c83",
     alt: "Technicien en blouse blanche analysant échantillons de farine dans laboratoire moderne"
