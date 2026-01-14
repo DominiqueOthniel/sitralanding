@@ -73,6 +73,22 @@ const ImageGallerySection = () => {
       title: 'Notre Savoir-Faire',
       description: 'Plus de 20 ans d\'excellence dans la production de farine',
       category: 'production'
+    },
+    {
+      id: 'galerie-8',
+      src: '/assets/images/bread.jpg',
+      alt: 'Baguettes fraîches dans un présentoir de boulangerie',
+      title: 'Résultats de Qualité',
+      description: 'Baguettes dorées et croustillantes réalisées avec nos farines premium',
+      category: 'produits'
+    },
+    {
+      id: 'galerie-8',
+      src: '/assets/images/baguettes-presentoir.jpg',
+      alt: 'Baguettes fraîchement cuites dans un présentoir',
+      title: 'Résultats de Qualité',
+      description: 'Des pains de qualité supérieure grâce à notre farine premium',
+      category: 'produits'
     }
   ];
 

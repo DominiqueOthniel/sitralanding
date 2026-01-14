@@ -238,3 +238,5 @@ Ce site est maintenant **100% Mobile-Friendly** selon les standards :
 *Testé sur 7+ types d'appareils*
 *Performance garantie sur tous les téléphones* 🚀
 
+
+

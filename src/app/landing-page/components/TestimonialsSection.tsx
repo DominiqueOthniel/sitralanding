@@ -57,11 +57,11 @@ const AboutSection = () => {
 
   return (
     <section id="qui-sommes-nous" className="py-20 relative">
-      {/* Background image with overlay - Équipe de meuniers et experts qualité - Optimized */}
+      {/* Background image with overlay - Résultats de qualité - Optimized */}
       <div 
         className="absolute inset-0 z-0 section-bg-image"
         style={{
-          backgroundImage: 'url(/assets/images/galerie-5.jpg)'
+          backgroundImage: 'url(/assets/images/bread.jpg)'
         }}
       >
         <div className="section-bg-overlay-strong"></div>

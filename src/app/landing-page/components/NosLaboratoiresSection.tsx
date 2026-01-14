@@ -129,22 +129,6 @@ const NosLaboratoiresSection = () => {
                 {laboratories[activeLab].description}
               </p>
 
-              {/* Equipment */}
-              <div className="mb-8">
-                <h4 className="text-lg font-bold text-gray-900 mb-4 flex items-center">
-                  <Icon name="CogIcon" size={20} className="mr-2" />
-                  Équipements Principaux
-                </h4>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                  {laboratories[activeLab].equipment.map((item, idx) => (
-                    <div key={idx} className="flex items-center">
-                      <Icon name="CheckIcon" size={16} className="text-green-600 mr-2 flex-shrink-0" />
-                      <span className="text-gray-700">{item}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
               {/* Analyses Effectuées - Only for Contrôle Qualité */}
               {laboratories[activeLab].analyses && laboratories[activeLab].analyses.length > 0 && (
                 <div className="mb-8">
@@ -164,13 +148,7 @@ const NosLaboratoiresSection = () => {
               )}
 
               {/* Stats */}
-              <div className="grid grid-cols-2 gap-4 pt-6 border-t border-gray-200">
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-green-600 mb-1">
-                    {laboratories[activeLab].equipment.length}
-                  </div>
-                  <div className="text-sm text-gray-600">Équipements</div>
-                </div>
+              <div className="grid grid-cols-1 gap-4 pt-6 border-t border-gray-200">
                 <div className="text-center">
                   <div className="text-2xl font-bold text-green-600 mb-1">24/7</div>
                   <div className="text-sm text-gray-600">Disponibilité</div>

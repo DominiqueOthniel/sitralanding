@@ -124,6 +124,22 @@ const ExperiencesSection = () => {
       image: '/assets/images/galerie-2.jpg',
       alt: 'Pâtisseries signature élégantes',
       category: 'patisserie'
+    },
+    {
+      id: 'boulangerie-3',
+      title: 'Excellence en Boulangerie Traditionnelle',
+      client: 'Boulangerie Artisanale Le Fournil',
+      location: 'Yaoundé, Cameroun',
+      description: 'Transformation complète avec nos farines premium. Baguettes dorées, croustillantes et savoureuses qui font la réputation de la boulangerie.',
+      results: [
+        'Baguettes parfaitement dorées et croustillantes',
+        'Texture et goût exceptionnels',
+        'Augmentation de 60% des ventes',
+        'Reconnaissance par le concours de boulangerie'
+      ],
+      image: '/assets/images/bread.jpg',
+      alt: 'Baguettes fraîches dorées dans présentoir de boulangerie - Résultat de qualité',
+      category: 'boulangerie'
     }
   ];
 

@@ -242,3 +242,5 @@ Ce site est maintenant **100% optimisé pour le scroll mobile** selon les standa
 *Testé sur iPhone et Android*
 *Scroll fluide garanti sur tous les téléphones* 🚀
 
+
+
