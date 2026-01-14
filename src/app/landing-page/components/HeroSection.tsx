@@ -67,60 +67,22 @@ const HeroSection = ({ onOrderClick, onWhatsAppClick }: HeroSectionProps) => {
             </div>
           </div>
 
-          {/* Hero Images - Mobile Optimized with Creative Layout */}
+          {/* Hero Image - Mobile Optimized */}
           <div className="relative mt-8 lg:mt-0">
-            <div className="grid grid-cols-2 gap-3 sm:gap-4">
-              {/* Main Image - Production */}
-              <div className="relative overflow-hidden rounded-xl sm:rounded-2xl shadow-2xl group col-span-2">
-                <div className="absolute inset-0 bg-gradient-to-br from-gray-900/5 to-transparent rounded-xl sm:rounded-2xl z-10"></div>
-                <AnimatedImage
-                  src="/assets/images/galerie-1.jpg"
-                  alt="Boulanger professionnel pétrissant de la pâte avec de la farine de qualité supérieure dans une boulangerie moderne"
-                  className="w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[500px] object-cover group-hover:scale-105 transition-transform duration-700"
-                  animation="reveal"
-                  speed={0.5}
-                />
-                {/* Decorative gradient overlay */}
-                <div className="absolute bottom-0 left-0 right-0 h-24 sm:h-32 bg-gradient-to-t from-white/20 to-transparent pointer-events-none"></div>
-              </div>
-              
-              {/* Result Image - Bread Display */}
-              <div className="relative overflow-hidden rounded-xl sm:rounded-2xl shadow-2xl group">
-                <div className="absolute inset-0 bg-gradient-to-br from-amber-900/10 to-transparent rounded-xl sm:rounded-2xl z-10"></div>
-                <AnimatedImage
-                  src="/assets/images/bread.jpg"
-                  alt="Baguettes fraîches dorées dans un présentoir de boulangerie - Résultat de qualité avec nos farines premium"
-                  className="w-full h-[200px] sm:h-[250px] md:h-[300px] lg:h-[300px] object-cover group-hover:scale-110 transition-transform duration-700"
-                  animation="fadeIn"
-                  speed={0.6}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
-                {/* Badge overlay */}
-                <div className="absolute bottom-3 left-3 right-3">
-                  <div className="bg-white/95 backdrop-blur-sm rounded-lg px-3 py-1.5 shadow-lg">
-                    <p className="text-xs sm:text-sm font-bold text-gray-900">Résultat Final</p>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Trust Badge Card */}
-              <div className="relative bg-gradient-to-br from-green-50 to-green-100 rounded-xl sm:rounded-2xl shadow-xl border-2 border-green-200 flex items-center justify-center p-4 sm:p-6">
-                <div className="text-center">
-                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 shadow-lg">
-                    <Icon name="ShieldCheckIcon" size={24} className="text-white" />
-                  </div>
-                  <p className="text-xs sm:text-sm font-bold text-gray-900 mb-1">Qualité</p>
-                  <p className="text-xs sm:text-sm font-semibold text-green-700">Premium</p>
-                  <div className="mt-3 sm:mt-4 flex items-center justify-center space-x-1">
-                    <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                    <span className="text-[10px] sm:text-xs text-gray-600">Certifié</span>
-                  </div>
-                </div>
-              </div>
+            <div className="relative overflow-hidden rounded-xl sm:rounded-2xl shadow-2xl group">
+              <div className="absolute inset-0 bg-gradient-to-br from-gray-900/5 to-transparent rounded-xl sm:rounded-2xl z-10"></div>
+              <AnimatedImage
+                src="/assets/images/galerie-1.jpg"
+                alt="Boulanger professionnel pétrissant de la pâte avec de la farine de qualité supérieure dans une boulangerie moderne"
+                className="w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[650px] object-cover group-hover:scale-105 transition-transform duration-700"
+                animation="reveal"
+                speed={0.5}
+              />
+              {/* Decorative gradient overlay */}
+              <div className="absolute bottom-0 left-0 right-0 h-24 sm:h-32 bg-gradient-to-t from-white/20 to-transparent pointer-events-none"></div>
             </div>
-            
             {/* Floating badge - Mobile Friendly */}
-            <div className="absolute -bottom-4 sm:-bottom-6 left-1/2 transform -translate-x-1/2 bg-white rounded-full px-4 sm:px-6 py-2 sm:py-3 shadow-xl border border-gray-100 z-20">
+            <div className="absolute -bottom-4 sm:-bottom-6 left-1/2 transform -translate-x-1/2 bg-white rounded-full px-4 sm:px-6 py-2 sm:py-3 shadow-xl border border-gray-100">
               <div className="flex items-center space-x-2">
                 <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
                 <span className="text-xs sm:text-sm font-semibold text-gray-900 whitespace-nowrap">Qualité Premium</span>

@@ -13,7 +13,7 @@ interface Experience {
   results: string[];
   image: string;
   alt: string;
-  category: 'boulangerie' | 'patisserie' | 'restaurant' | 'industriel';
+  category: 'boulangerie' | 'patisserie' | 'industriel';
 }
 
 const ExperiencesSection = () => {
@@ -24,7 +24,6 @@ const ExperiencesSection = () => {
     { id: 'all', label: 'Toutes', icon: 'StarIcon' },
     { id: 'boulangerie', label: 'Boulangerie', icon: 'ShoppingCartIcon' },
     { id: 'patisserie', label: 'Pâtisserie', icon: 'StarIcon' },
-    { id: 'restaurant', label: 'Restaurant', icon: 'BuildingStorefrontIcon' },
     { id: 'industriel', label: 'Industriel', icon: 'BuildingOfficeIcon' }
   ];
 
@@ -60,22 +59,6 @@ const ExperiencesSection = () => {
       image: '/assets/images/galerie-2.jpg',
       alt: 'Pâtisseries fines et élégantes',
       category: 'patisserie'
-    },
-    {
-      id: 'restaurant-1',
-      title: 'Pizza Napolitaine Authentique',
-      client: 'Restaurant La Bella Italia',
-      location: 'Douala, Cameroun',
-      description: 'Utilisation de notre farine Type 00 pour des pizzas authentiques avec une croûte parfaite et un goût incomparable.',
-      results: [
-        'Croûte croustillante et aérée',
-        'Temps de fermentation optimisé',
-        'Reconnaissance par les clients italiens',
-        'Augmentation des ventes de 60%'
-      ],
-      image: '/assets/images/galerie-6.jpg',
-      alt: 'Pizza napolitaine authentique',
-      category: 'restaurant'
     },
     {
       id: 'industriel-1',
@@ -124,22 +107,6 @@ const ExperiencesSection = () => {
       image: '/assets/images/galerie-2.jpg',
       alt: 'Pâtisseries signature élégantes',
       category: 'patisserie'
-    },
-    {
-      id: 'boulangerie-3',
-      title: 'Excellence en Boulangerie Traditionnelle',
-      client: 'Boulangerie Artisanale Le Fournil',
-      location: 'Yaoundé, Cameroun',
-      description: 'Transformation complète avec nos farines premium. Baguettes dorées, croustillantes et savoureuses qui font la réputation de la boulangerie.',
-      results: [
-        'Baguettes parfaitement dorées et croustillantes',
-        'Texture et goût exceptionnels',
-        'Augmentation de 60% des ventes',
-        'Reconnaissance par le concours de boulangerie'
-      ],
-      image: '/assets/images/bread.jpg',
-      alt: 'Baguettes fraîches dorées dans présentoir de boulangerie - Résultat de qualité',
-      category: 'boulangerie'
     }
   ];
 

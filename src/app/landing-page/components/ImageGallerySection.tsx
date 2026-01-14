@@ -52,6 +52,14 @@ const ImageGallerySection = () => {
     },
     {
       id: 'galerie-5',
+      src: '/assets/images/bread.jpg',
+      alt: 'Baguettes fraîches dorées dans un présentoir de boulangerie traditionnelle - Résultat de qualité',
+      title: 'Le Résultat de Notre Excellence',
+      description: 'Baguettes parfaitement dorées et croustillantes réalisées avec nos farines premium. La preuve concrète de la qualité dans chaque bouchée.',
+      category: 'produits'
+    },
+    {
+      id: 'galerie-6',
       src: '/assets/images/zone-chargement.jpg',
       alt: 'Zone de chargement et livraison avec camion',
       title: 'Logistique & Livraison',
@@ -59,7 +67,7 @@ const ImageGallerySection = () => {
       category: 'installation'
     },
     {
-      id: 'galerie-6',
+      id: 'galerie-7',
       src: '/assets/images/laboratoire-controle.jpg',
       alt: 'Laboratoire de contrôle qualité complet',
       title: 'Laboratoire de Contrôle',
@@ -67,28 +75,12 @@ const ImageGallerySection = () => {
       category: 'laboratoire'
     },
     {
-      id: 'galerie-7',
+      id: 'galerie-8',
       src: '/assets/images/galerie-7.jpg',
       alt: 'Installations Sitrabcam',
       title: 'Notre Savoir-Faire',
       description: 'Plus de 20 ans d\'excellence dans la production de farine',
       category: 'production'
-    },
-    {
-      id: 'galerie-8',
-      src: '/assets/images/bread.jpg',
-      alt: 'Baguettes fraîches dans un présentoir de boulangerie',
-      title: 'Résultats de Qualité',
-      description: 'Baguettes dorées et croustillantes réalisées avec nos farines premium',
-      category: 'produits'
-    },
-    {
-      id: 'galerie-8',
-      src: '/assets/images/baguettes-presentoir.jpg',
-      alt: 'Baguettes fraîchement cuites dans un présentoir',
-      title: 'Résultats de Qualité',
-      description: 'Des pains de qualité supérieure grâce à notre farine premium',
-      category: 'produits'
     }
   ];
 
