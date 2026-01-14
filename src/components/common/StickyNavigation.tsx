@@ -20,7 +20,6 @@ const navigationItems: NavigationItem[] = [
   { id: 'nos-laboratoires', label: 'Nos laboratoires', href: '#nos-laboratoires' },
   { id: 'catalogue', label: 'Catalogue', href: '#catalogue' },
   { id: 'qui-sommes-nous', label: 'Qui sommes-nous', href: '#qui-sommes-nous' },
-  { id: 'nos-experiences', label: 'Nos expériences', href: '#nos-experiences' },
   { id: 'galerie', label: 'Galerie', href: '#galerie' },
   { id: 'contact', label: 'Contact', href: '#contact' },
 ];

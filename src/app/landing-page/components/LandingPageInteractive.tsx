@@ -13,7 +13,6 @@ const MotDuPDGSection = lazy(() => import('./MotDuPDGSection'));
 const NosLaboratoiresSection = lazy(() => import('./NosLaboratoiresSection'));
 const ProductShowcase = lazy(() => import('./ProductShowcase'));
 const AboutSection = lazy(() => import('./TestimonialsSection'));
-const ExperiencesSection = lazy(() => import('./ExperiencesSection'));
 const ImageGallerySection = lazy(() => import('./ImageGallerySection'));
 const FAQSection = lazy(() => import('./FAQSection'));
 const ContactSection = lazy(() => import('./ContactSection'));
@@ -92,11 +91,6 @@ const LandingPageInteractive = () => {
       </Suspense>
       <Suspense fallback={<div className="min-h-[400px]" />}>
         <AnimatedSection animation="fadeInUp" delay={200}>
-          <ExperiencesSection />
-        </AnimatedSection>
-      </Suspense>
-      <Suspense fallback={<div className="min-h-[400px]" />}>
-        <AnimatedSection animation="fadeInUp" delay={100}>
           <ImageGallerySection />
         </AnimatedSection>
       </Suspense>
