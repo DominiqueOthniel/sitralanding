@@ -212,47 +212,27 @@ const ProductShowcase = () => {
         {/* Active Product Details */}
         <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-100">
           <div className="grid lg:grid-cols-2">
-            {/* Product Image with Result Showcase */}
-            <div className="relative h-96 lg:h-[600px] group overflow-hidden bg-gray-50">
-              <div className="grid grid-cols-2 gap-2 h-full">
-                {/* Main Product Image */}
-                <div className="relative col-span-2 h-3/4 flex items-center justify-center bg-white">
-                  <AnimatedImage
-                    src={products[activeProduct].image}
-                    alt={products[activeProduct].alt}
-                    className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700"
-                    animation="parallax"
-                    speed={0.5}
-                    key={activeProduct}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent pointer-events-none"></div>
-                  
-                  {/* Popular Badge */}
-                  {products[activeProduct].popular &&
-                  <div className="absolute top-6 right-6 bg-white/95 backdrop-blur-sm text-gray-900 px-4 py-2 rounded-full text-sm font-semibold shadow-lg border border-gray-200">
-                      ⭐ Plus Populaire
-                    </div>
-                  }
+                        {/* Product Image */}
+            <div className="relative h-96 lg:h-[600px] group overflow-hidden bg-gray-50 flex items-center justify-center">
+              <AnimatedImage
+                src={products[activeProduct].image}
+                alt={products[activeProduct].alt}
+                className={"w-full h-full object-contain group-hover:scale-105 transition-transform duration-700"}
+                animation={"parallax"}
+                speed={0.5}
+                key={activeProduct}
+              />
+
+              <div className={"absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none"}></div>
+              
+              {/* Popular Badge */}
+              {products[activeProduct].popular &&
+              <div className={"absolute top-6 right-6 bg-white/95 backdrop-blur-sm text-gray-900 px-4 py-2 rounded-full text-sm font-semibold shadow-lg border border-gray-200"}>
+                  ⭐ Plus Populaire
                 </div>
-                
-                {/* Result Image - Bread */}
-                <div className="relative col-span-2 h-1/4 overflow-hidden bg-gradient-to-br from-amber-50 to-orange-50">
-                  <AnimatedImage
-                    src="/assets/images/bread.jpg"
-                    alt="Résultat final : baguettes dorées réalisées avec nos farines premium"
-                    className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500"
-                    animation="fadeIn"
-                    speed={0.4}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
-                  <div className="absolute bottom-2 left-3 right-3">
-                    <p className="text-[10px] sm:text-xs font-bold text-white drop-shadow-lg">
-                      ✨ Résultat avec {products[activeProduct].name}
-                    </p>
-                  </div>
-                </div>
-              </div>
+              }
             </div>
+
 
             {/* Product Information */}
             <div className="p-8 lg:p-12 flex flex-col justify-center">
