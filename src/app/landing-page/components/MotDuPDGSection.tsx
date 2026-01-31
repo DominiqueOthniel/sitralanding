@@ -2,6 +2,7 @@
 
 import AnimatedImage from '../../../components/ui/AnimatedImage';
 import Icon from '../../../components/ui/AppIcon';
+import { assetUrl } from '../../../config';
 
 const MotDuPDGSection = () => {
   return (
@@ -36,7 +37,7 @@ const MotDuPDGSection = () => {
             <div className="relative">
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <AnimatedImage
-                  src="/assets/images/galerie-5.jpg"
+                  src={assetUrl("/assets/images/galerie-5.jpg")}
                   alt="PDG de Sitrabcam - Portrait professionnel"
                   className="w-full h-96 object-cover"
                   animation="fadeBlur"

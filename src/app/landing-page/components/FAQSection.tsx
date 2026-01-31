@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Icon from '../../../components/ui/AppIcon';
+import { assetUrl } from '../../../config';
 
 interface FAQ {
   id: string;
@@ -104,7 +105,7 @@ const FAQSection = () => {
       <div 
         className="absolute inset-0 z-0 section-bg-image"
         style={{
-          backgroundImage: 'url(/assets/images/galerie-3.jpg)'
+          backgroundImage: `url(${assetUrl('/assets/images/galerie-3.jpg')})`
         }}
       >
         <div className="section-bg-overlay-strong"></div>

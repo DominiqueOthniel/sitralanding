@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import Icon from '../../../components/ui/AppIcon';
+import { assetUrl } from '../../../config';
 
 interface GalleryImage {
   id: string;
@@ -20,7 +21,7 @@ const ImageGallerySection = () => {
   const galleryImages: GalleryImage[] = [
     {
       id: 'galerie-1',
-      src: '/assets/images/usine-exterieur.jpg',
+      src: assetUrl('/assets/images/usine-exterieur.jpg'),
       alt: 'Vue extérieure de nos installations Sitrabcam',
       title: 'Nos Installations',
       description: 'Infrastructure moderne de production à Douala',
@@ -36,7 +37,7 @@ const ImageGallerySection = () => {
     },
     {
       id: 'galerie-3',
-      src: '/assets/images/laboratoire-analyse-qualite.jpg',
+      src: assetUrl('/assets/images/laboratoire-analyse-qualite.jpg'),
       alt: 'Laboratoire d\'analyse qualité avec équipement SD MATIC',
       title: 'Contrôle Qualité Rigoureux',
       description: 'Analyses en temps réel de chaque lot de farine',
@@ -44,7 +45,7 @@ const ImageGallerySection = () => {
     },
     {
       id: 'galerie-4',
-      src: '/assets/images/entrepot-production.jpg',
+      src: assetUrl('/assets/images/entrepot-production.jpg'),
       alt: 'Entrepôt avec stocks de sacs de farine',
       title: 'Capacité de Production',
       description: 'Stocks importants pour répondre à vos besoins',
@@ -52,7 +53,7 @@ const ImageGallerySection = () => {
     },
     {
       id: 'galerie-5',
-      src: '/assets/images/bread.jpg',
+      src: assetUrl('/assets/images/bread.jpg'),
       alt: 'Baguettes fraîches dorées dans un présentoir de boulangerie traditionnelle - Résultat de qualité',
       title: 'Le Résultat de Notre Excellence',
       description: 'Baguettes parfaitement dorées et croustillantes réalisées avec nos farines premium. La preuve concrète de la qualité dans chaque bouchée.',
@@ -68,7 +69,7 @@ const ImageGallerySection = () => {
     },
     {
       id: 'galerie-7',
-      src: '/assets/images/laboratoire-controle.jpg',
+      src: assetUrl('/assets/images/laboratoire-controle.jpg'),
       alt: 'Laboratoire de contrôle qualité complet',
       title: 'Laboratoire de Contrôle',
       description: 'Tests approfondis: humidité, protéines, gluten, cendres',
@@ -123,7 +124,7 @@ const ImageGallerySection = () => {
       <div 
         className="absolute inset-0 z-0 section-bg-image"
         style={{
-          backgroundImage: 'url(/assets/images/entrepot-production.jpg)'
+          backgroundImage: `url(${assetUrl('/assets/images/entrepot-production.jpg')})`
         }}
       >
         <div className="section-bg-overlay-strong"></div>

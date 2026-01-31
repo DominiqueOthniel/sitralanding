@@ -2,7 +2,11 @@
 const nextConfig = {
     // EXPORT STATIQUE : Génère un site HTML pur (pas besoin de Node.js)
     output: 'export',
-    
+    // Trailing slash pour la version HTML : génère index.html dans chaque dossier (compatibilité hébergement statique)
+    trailingSlash: true,
+    // Chemins relatifs pour que le CSS/JS s'affichent correctement en version HTML (fichiers ou serveur)
+    assetPrefix: './',
+
     // Désactiver les source maps en production pour améliorer les performances
     productionBrowserSourceMaps: false,
     distDir: process.env.DIST_DIR || '.next',
@@ -41,9 +45,9 @@ const nextConfig = {
       minimumCacheTTL: 60,
     },
     
-    // Optimisation du bundle
+    // Optimisation du bundle (optimizeCss désactivé pour éviter les problèmes de CSS en export statique)
     experimental: {
-      optimizeCss: true,
+      optimizeCss: false,
     },
     
     // Webpack config - loader component-tagger retiré pour éviter les erreurs de build

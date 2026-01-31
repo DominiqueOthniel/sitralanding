@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
+import { assetUrl } from '../../config';
 
 interface AppImageProps {
     src: string;
@@ -33,7 +34,7 @@ function AppImage({
     fill = false,
     sizes,
     onClick,
-    fallbackSrc = '/assets/images/no_image.png',
+    fallbackSrc = assetUrl('/assets/images/no_image.png'),
     ...props
 }: AppImageProps) {
     const [imageSrc, setImageSrc] = useState(src);
@@ -46,7 +47,7 @@ function AppImage({
 
     const handleError = () => {
         if (!hasError && imageSrc !== fallbackSrc) {
-            setImageSrc(fallbackSrc);
+            setImageSrc(fallbackSrc.startsWith('/') ? assetUrl(fallbackSrc) : fallbackSrc);
             setHasError(true);
         }
         setIsLoading(false);

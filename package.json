@@ -41,6 +41,7 @@
   "scripts": {
     "dev": "next dev -p 4028",
     "build": "next build",
+    "build:html": "next build",
     "start": "next start",
     "lint": "next lint",
     "lint:fix": "next lint --fix",

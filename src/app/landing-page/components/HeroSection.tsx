@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import Icon from '../../../components/ui/AppIcon';
 import AnimatedImage from '../../../components/ui/AnimatedImage';
+import { assetUrl } from '../../../config';
 
 interface HeroSectionProps {
   onOrderClick: () => void;
@@ -72,7 +73,7 @@ const HeroSection = ({ onOrderClick, onWhatsAppClick }: HeroSectionProps) => {
             <div className="relative overflow-hidden rounded-xl sm:rounded-2xl shadow-2xl group">
               <div className="absolute inset-0 bg-gradient-to-br from-gray-900/5 to-transparent rounded-xl sm:rounded-2xl z-10"></div>
               <AnimatedImage
-                src="/assets/images/galerie-1.jpg"
+                src={assetUrl('/assets/images/galerie-1.jpg')}
                 alt="Boulanger professionnel pétrissant de la pâte avec de la farine de qualité supérieure dans une boulangerie moderne"
                 className="w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[650px] object-cover group-hover:scale-105 transition-transform duration-700"
                 animation="reveal"

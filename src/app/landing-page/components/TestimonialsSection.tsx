@@ -2,6 +2,7 @@
 
 import AnimatedImage from '../../../components/ui/AnimatedImage';
 import Icon from '../../../components/ui/AppIcon';
+import { assetUrl } from '../../../config';
 
 const AboutSection = () => {
   const values = [
@@ -109,7 +110,7 @@ const AboutSection = () => {
 
           <div className="relative">
             <AnimatedImage
-              src="/assets/images/galerie-5.jpg"
+              src={assetUrl("/assets/images/galerie-5.jpg")}
               alt="Équipe de meuniers camerounais contrôlant la qualité des grains"
               className="w-full h-[420px] rounded-3xl shadow-2xl"
               animation="fadeBlur"

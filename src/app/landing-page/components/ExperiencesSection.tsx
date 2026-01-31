@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import AnimatedImage from '../../../components/ui/AnimatedImage';
 import Icon from '../../../components/ui/AppIcon';
+import { assetUrl } from '../../../config';
 
 interface Experience {
   id: string;
@@ -40,7 +41,7 @@ const ExperiencesSection = () => {
         'Amélioration de la texture et du goût',
         'Standardisation des recettes réussie'
       ],
-      image: '/assets/images/galerie-1.jpg',
+      image: assetUrl('/assets/images/galerie-1.jpg'),
       alt: 'Boulangerie moderne avec pains frais',
       category: 'boulangerie'
     },
@@ -56,7 +57,7 @@ const ExperiencesSection = () => {
         'Réduction des coûts de 15%',
         'Satisfaction client à 98%'
       ],
-      image: '/assets/images/galerie-2.jpg',
+      image: assetUrl('/assets/images/galerie-2.jpg'),
       alt: 'Pâtisseries fines et élégantes',
       category: 'patisserie'
     },
@@ -72,7 +73,7 @@ const ExperiencesSection = () => {
         'Réduction des coûts de 20%',
         'Livraisons ponctuelles à 100%'
       ],
-      image: '/assets/images/galerie-7.jpg',
+      image: assetUrl('/assets/images/galerie-7.jpg'),
       alt: 'Ligne de production industrielle',
       category: 'industriel'
     },
@@ -88,7 +89,7 @@ const ExperiencesSection = () => {
         'Support technique dédié',
         'Expansion facilitée'
       ],
-      image: '/assets/images/galerie-1.jpg',
+      image: assetUrl('/assets/images/galerie-1.jpg'),
       alt: 'Chaîne de boulangeries moderne',
       category: 'boulangerie'
     },
@@ -104,7 +105,7 @@ const ExperiencesSection = () => {
         'Augmentation du CA de 50%',
         'Partenariat long terme'
       ],
-      image: '/assets/images/galerie-2.jpg',
+      image: assetUrl('/assets/images/galerie-2.jpg'),
       alt: 'Pâtisseries signature élégantes',
       category: 'patisserie'
     }
@@ -120,7 +121,7 @@ const ExperiencesSection = () => {
       <div 
         className="absolute inset-0 z-0 section-bg-image"
         style={{
-          backgroundImage: 'url(/assets/images/galerie-1.jpg)'
+          backgroundImage: `url(${assetUrl('/assets/images/galerie-1.jpg')})`
         }}
       >
         <div className="section-bg-overlay-strong"></div>

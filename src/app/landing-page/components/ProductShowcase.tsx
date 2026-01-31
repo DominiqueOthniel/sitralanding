@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import AnimatedImage from '../../../components/ui/AnimatedImage';
 import Icon from '../../../components/ui/AppIcon';
+import { assetUrl } from '../../../config';
 
 interface Product {
   id: string;
@@ -13,7 +14,7 @@ interface Product {
     protein: string;
     moisture: string;
     ash: string;
-    gluten: string;
+    gluten?: string;
   };
   usageRecommendations: string[];
   packaging: string[];
@@ -79,15 +80,14 @@ const ProductShowcase = () => {
 
   const products: Product[] = [
   {
-    id: 'farine-force',
-    name: 'Farine de Force',
+    id: 'farine-lion',
+    name: 'Farine LION (Haute gamme)',
     type: 'Type 65',
-    description: 'Farine à haute teneur en gluten, idéale pour les pâtes qui nécessitent une grande élasticité et une excellente rétention gazeuse.',
+    description: 'Farine à haute teneur en protéines, idéale pour les pâtes qui nécessitent une grande élasticité et une excellente rétention gazeuse.',
     specifications: {
-      protein: '12-14%',
-      moisture: '≤ 15%',
-      ash: '0.60-0.75%',
-      gluten: 'Très fort'
+      protein: 'Min 12.5%',
+      moisture: 'Max 14%',
+      ash: '0.65%'
     },
     usageRecommendations: [
     'Pains spéciaux',
@@ -95,42 +95,59 @@ const ProductShowcase = () => {
     'Pâtes levées longues',
     'Produits nécessitant une forte élasticité'],
 
-    packaging: ['Sacs 25kg', 'Sacs 50kg', 'Big bags 1000kg'],
-    image: "/assets/images/farine-force.png",
-    alt: 'Farine de force pour boulangerie professionnelle',
+    packaging: ['Sacs 50kg'],
+    image: assetUrl("/assets/images/sac-lion.jpg"),
+    alt: 'Sac de Farine LION 50kg',
     popular: true
   },
   {
-    id: 'farine-boulangere',
-    name: 'Farine Boulangère',
+    id: 'farine-elephant',
+    name: 'Farine ELEPHANT (Moyenne gamme)',
     type: 'Type 55',
     description: 'Farine polyvalente par excellence pour tous vos besoins en boulangerie. Texture parfaite et résultats constants.',
     specifications: {
-      protein: '11-12%',
-      moisture: '≤ 15%',
-      ash: '0.50-0.60%',
-      gluten: 'Fort'
+      protein: 'Min 12.0%',
+      moisture: 'Max 14%',
+      ash: '0.65%'
     },
     usageRecommendations: [
+    'Brioches et viennoiseries',
     'Pain blanc et traditionnel',
-    'Viennoiseries',
-    'Pâtes brisées',
-    'Pains de mie'],
+    'Pains de mie',
+    'Pains spéciaux'],
 
-    packaging: ['Sacs 25kg', 'Sacs 50kg', 'Big bags 1000kg'],
-    image: "/assets/images/farine-boulangere.png",
-    alt: 'Farine boulangère premium pour professionnels'
+    packaging: ['Sacs 50kg'],
+    image: assetUrl("/assets/images/sac-elephant.jpg"),
+    alt: 'Sac de Farine ELEPHANT 50kg'
   },
   {
-    id: 'farine-beignets',
-    name: 'Farine de Beignets',
+    id: 'farine-renard',
+    name: 'Farine RENARD (Standard)',
+    type: 'Type 55',
+    description: 'Farine standard de qualité pour la production courante de pains et produits de boulangerie.',
+    specifications: {
+      protein: 'Min 11.5%',
+      moisture: 'Max 14%',
+      ash: '0.65%'
+    },
+    usageRecommendations: [
+    'Pain courant',
+    'Boulangerie standard',
+    'Usage quotidien'],
+
+    packaging: ['Sacs 50kg', 'Sacs 25kg'],
+    image: assetUrl("/assets/images/sac-renard.jpg"),
+    alt: 'Sac de Farine RENARD'
+  },
+  {
+    id: 'farine-adora',
+    name: 'Farine ADORA (Beignets)',
     type: 'Type 45',
     description: 'Farine spécialement formulée pour des beignets légers, croustillants et moelleux. Absorption optimale pour une texture parfaite.',
     specifications: {
-      protein: '9-10%',
-      moisture: '≤ 14%',
-      ash: '0.40-0.50%',
-      gluten: 'Modéré'
+      protein: 'Min 11.5%',
+      moisture: 'Max 14%',
+      ash: '0.65 – 0.70%'
     },
     usageRecommendations: [
     'Beignets et donuts',
@@ -138,20 +155,19 @@ const ProductShowcase = () => {
     'Crêpes et pancakes',
     'Pâtisseries frites'],
 
-    packaging: ['Sacs 25kg', 'Sacs 50kg'],
-    image: "/assets/images/photo_2025-11-23_17-28-51.jpg",
-    alt: 'Farine de beignets pour fritures et pâtisseries'
+    packaging: ['Sacs 50kg', 'Sacs 25kg', 'Sacs 10kg', 'Big bags 5kg (10x5kg)'],
+    image: assetUrl("/assets/images/sac-adora.jpg"),
+    alt: 'Sac de Farine ADORA'
   },
   {
     id: 'farine-complete',
-    name: 'Farine Complète',
+    name: 'Farine La Complète',
     type: 'Type 150',
     description: 'Farine intégrale riche en fibres et nutriments. Parfaite pour des pains complets savoureux et nutritifs.',
     specifications: {
-      protein: '12-13%',
-      moisture: '≤ 15%',
-      ash: '1.20-1.50%',
-      gluten: 'Fort'
+      protein: 'Min 11.5%',
+      moisture: 'Max 14%',
+      ash: '1.10 – 1.50%'
     },
     usageRecommendations: [
     'Pains complets',
@@ -159,9 +175,28 @@ const ProductShowcase = () => {
     'Pains de campagne',
     'Produits diététiques'],
 
-    packaging: ['Sacs 25kg', 'Sacs 50kg'],
-    image: "/assets/images/sac-farine-complete.png",
-    alt: 'Sac de farine complète riche en fibres et nutriments'
+    packaging: ['Sacs 25kg'],
+    image: assetUrl("/assets/images/sac-la-complete.jpg"),
+    alt: 'Sac de Farine La Complète 25kg'
+  },
+  {
+    id: 'farine-biscoti',
+    name: 'Farine BISCOTI (Industrielle)',
+    type: 'Industrielle',
+    description: 'Farine spécialement conçue pour la production industrielle de biscuits, garantissant une régularité parfaite.',
+    specifications: {
+      protein: 'Min 11.5%',
+      moisture: 'Max 14%',
+      ash: '0.65%'
+    },
+    usageRecommendations: [
+    'Biscuits',
+    'Production industrielle',
+    'Biscuiterie'],
+
+    packaging: ['Sacs 50kg'],
+    image: assetUrl("/assets/images/sac-biscoti.jpg"),
+    alt: 'Sac de Farine BISCOTI 50kg'
   }];
 
 
@@ -212,27 +247,26 @@ const ProductShowcase = () => {
         {/* Active Product Details */}
         <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-100">
           <div className="grid lg:grid-cols-2">
-                        {/* Product Image */}
+            {/* Product Image */}
             <div className="relative h-96 lg:h-[600px] group overflow-hidden bg-gray-50 flex items-center justify-center">
               <AnimatedImage
                 src={products[activeProduct].image}
                 alt={products[activeProduct].alt}
-                className={"w-full h-full object-contain group-hover:scale-105 transition-transform duration-700"}
-                animation={"parallax"}
+                className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700"
+                animation="parallax"
                 speed={0.5}
                 key={activeProduct}
               />
 
-              <div className={"absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none"}></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none"></div>
               
               {/* Popular Badge */}
               {products[activeProduct].popular &&
-              <div className={"absolute top-6 right-6 bg-white/95 backdrop-blur-sm text-gray-900 px-4 py-2 rounded-full text-sm font-semibold shadow-lg border border-gray-200"}>
+              <div className="absolute top-6 right-6 bg-white/95 backdrop-blur-sm text-gray-900 px-4 py-2 rounded-full text-sm font-semibold shadow-lg border border-gray-200">
                   ⭐ Plus Populaire
                 </div>
               }
             </div>
-
 
             {/* Product Information */}
             <div className="p-8 lg:p-12 flex flex-col justify-center">

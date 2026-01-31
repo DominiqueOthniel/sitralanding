@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import AnimatedImage from '../../../components/ui/AnimatedImage';
 import Icon from '../../../components/ui/AppIcon';
+import { assetUrl } from '../../../config';
 
 const NosLaboratoiresSection = () => {
   const [activeLab, setActiveLab] = useState(0);
@@ -29,7 +30,7 @@ const NosLaboratoiresSection = () => {
         'Poids spécifique',
         'Analyses rhéologiques (élasticité, extensibilité, indice d\'élasticité, force, etc.)'
       ],
-      image: '/assets/images/laboratoire-analyse-qualite.jpg',
+      image: assetUrl('/assets/images/laboratoire-analyse-qualite.jpg'),
       alt: 'Laboratoire de contrôle qualité moderne avec équipements d\'analyse SD MATIC'
     },
     {
@@ -56,7 +57,7 @@ const NosLaboratoiresSection = () => {
       <div 
         className="absolute inset-0 z-0 section-bg-image"
         style={{
-          backgroundImage: 'url(/assets/images/laboratoire-controle.jpg)'
+          backgroundImage: `url(${assetUrl('/assets/images/laboratoire-controle.jpg')})`
         }}
       >
         <div className="section-bg-overlay-strong"></div>
